@@ -66,7 +66,7 @@ def resolve_repo_root(explicit: str | None, config_path: Path) -> Path:
                 f"Fix: cp {config_path.with_name('config.yaml.example')} {config_path}, then edit "
                 f"repo_root - or pass --repo-root /path/to/embodied_perceptron for a one-off run."
             )
-        with open(config_path) as f:
+        with open(config_path, encoding="utf-8") as f:
             cfg = yaml.safe_load(f) or {}
         repo_root = cfg.get("repo_root")
         if not repo_root:
@@ -119,7 +119,7 @@ def read_seed(exp_dir: Path, config_stem: str, run_name: str):
     if not snapshot.exists():
         return None
     try:
-        with open(snapshot) as f:
+        with open(snapshot, encoding="utf-8") as f:
             cfg = yaml.safe_load(f)
         return cfg.get("seed")
     except Exception:
@@ -129,7 +129,7 @@ def read_seed(exp_dir: Path, config_stem: str, run_name: str):
 def scan_condition(exp_dir: Path, cond_yaml: Path, now: float):
     stem = cond_yaml.stem
     try:
-        with open(cond_yaml) as f:
+        with open(cond_yaml, encoding="utf-8") as f:
             cond_cfg = yaml.safe_load(f) or {}
     except Exception as exc:
         return {"stem": stem, "error": f"unreadable condition yaml: {exc}"}
@@ -150,7 +150,19 @@ def scan_condition(exp_dir: Path, cond_yaml: Path, now: float):
                 step, env_steps = None, None
             else:
                 step, env_steps = progress
-                if max_env_steps is not None and env_steps >= max_env_steps:
+                # >= max_env_steps is the "really did overshoot" case; the OR catches a run
+                # whose last eval tick landed just under the budget (eval.csv is only written at
+                # fixed eval intervals, so hitting env_steps == max_env_steps exactly is more
+                # luck than rule - such a run would sit just under 100% forever and never flip to
+                # done otherwise). Rounded to the nearest WHOLE percent (2 decimals of the
+                # fraction) - e.g. 2,990,000/3,000,000 = 99.67% rounds to 100% and counts as
+                # done. Whichever branch fires, the dashboard/report always display such a run as
+                # a flat 100.0%, not its raw percentage - see build_dashboard.py's render_repeat_
+                # cell-adjacent run-pill code and this file's print_report - so "done" and "shows
+                # 100%" can never disagree.
+                if max_env_steps and (
+                    env_steps >= max_env_steps or round(env_steps / max_env_steps, 2) >= 1.0
+                ):
                     status = "done"
                 elif (now - mtime) < _ACTIVE_THRESHOLD_SEC:
                     status = "active"
@@ -177,6 +189,12 @@ def scan_condition(exp_dir: Path, cond_yaml: Path, now: float):
     return {
         "stem": stem,
         "max_env_steps": max_env_steps,
+        # Actual repeat count observed on THIS machine alone - one run_dir per seed (see
+        # train_auto.sh's resume-aware pattern: a repeat doesn't get a new dir, it resumes the
+        # existing one for that seed), so this can run well past registry.yaml's methods:
+        # planned_repeats: since round-robin repeats are split across all 3 machines,
+        # build_dashboard.py sums this across machines (deduped by seed) for the real total.
+        "run_count": len(runs),
         "runs": runs,
     }
 
@@ -227,7 +245,17 @@ def print_report(status: dict):
                 print(f"  {exp_path}/{cond['stem']}: no runs yet")
                 continue
             for run in cond["runs"]:
-                pct = f"{run['progress'] * 100:5.1f}%" if run["progress"] is not None else "  n/a"
+                # done always displays as a flat 100.0%, never its raw percentage (which can be
+                # anywhere from ~99% - the round-to-nearest-whole-percent tolerance above - to
+                # 133%+ on genuine overshoot) - status and displayed number must never disagree.
+                # The stored progress field in status/*.json is left as the true raw value either
+                # way.
+                if run["status"] == "done":
+                    pct = "100.0%"
+                elif run["progress"] is not None:
+                    pct = f"{run['progress'] * 100:5.1f}%"
+                else:
+                    pct = "  n/a"
                 seed = run["seed"] if run["seed"] is not None else "?"
                 print(
                     f"  [{run['status']:9s}] {exp_path}/{cond['stem']}  "
@@ -252,7 +280,7 @@ def main():
     machine = args.machine or socket.gethostname().replace(".local", "")
     repo_root = resolve_repo_root(args.repo_root, Path(args.config))
 
-    with open(args.registry) as f:
+    with open(args.registry, encoding="utf-8") as f:
         registry = yaml.safe_load(f) or {}
     methods = registry.get("methods", {})
 
@@ -261,7 +289,7 @@ def main():
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / f"{machine}.json"
-    with open(out_path, "w") as f:
+    with open(out_path, "w", encoding="utf-8") as f:
         json.dump(status, f, indent=2, ensure_ascii=False)
     print(f"wrote {out_path}")
 

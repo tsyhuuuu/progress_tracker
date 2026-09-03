@@ -61,7 +61,7 @@ def group_key(method_path: str) -> str:
 
 
 def load_registry(path: Path) -> dict:
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         return yaml.safe_load(f) or {}
 
 
@@ -69,7 +69,7 @@ def load_statuses(status_dir: Path) -> dict:
     statuses = {}
     for p in sorted(status_dir.glob("*.json")):
         try:
-            with open(p) as f:
+            with open(p, encoding="utf-8") as f:
                 statuses[p.stem] = json.load(f)
         except Exception:
             continue
@@ -297,6 +297,17 @@ def esc(s) -> str:
     return html.escape(str(s), quote=True)
 
 
+def fmt_pct(fraction: float) -> str:
+    """Display-only percent string, 1 decimal place, rounded (not floored) and capped at 100% -
+    env_steps can run past max_env_steps (a resumed run's last eval tick doesn't land exactly on
+    the budget), and the raw value is worth keeping in status/*.json, but display never shows
+    more than 100.0%. Rounding here is deliberately the same 1-decimal-percent precision
+    scan_status.py's own done-vs-stalled check now rounds to (see its scan_condition() comment)
+    - so a run that rounds up to "100.0%" here is always already classified done/green there
+    too, never an orange pill showing "100.0%"."""
+    return f"{min(fraction, 1.0) * 100:.1f}%"
+
+
 def fmt_age(age_sec: float) -> str:
     if age_sec < 90:
         return "just now"
@@ -339,7 +350,7 @@ def render_meter(fraction, size="normal") -> str:
         pct_text = "—"
         width = 0
     else:
-        pct_text = f"{fraction * 100:.0f}%"
+        pct_text = fmt_pct(fraction)
         width = max(0.0, min(1.0, fraction)) * 100
     cls = f"meter meter-{size}"
     return (
@@ -387,9 +398,45 @@ def render_machine_row(mv: dict) -> str:
     )
 
 
-def render_condition_detail_row(row: dict, machines: list) -> str:
+def combined_repeat_count(row: dict) -> int:
+    """Actual repeat count for this condition, combined across every machine (round-robin
+    repeats split the seed range across all 3, so no single machine's status/*.json run_count
+    is the real total - see registry.yaml's planned_repeats comment). Distinct seeds are
+    deduped (two machines both landing on the same seed - overlapping SEED_START ranges -
+    should count once, not twice); a run whose seed couldn't be read (e.g. a missing .hydra
+    config snapshot) is counted individually since it can't be matched against anything."""
+    seeds = set()
+    unseeded = 0
+    for runs in row["by_machine"].values():
+        for run in runs:
+            if run.get("seed") is not None:
+                seeds.add(run["seed"])
+            else:
+                unseeded += 1
+    return len(seeds) + unseeded
+
+
+def repeats_summary_html(condition_rows: list, planned_repeats) -> str:
+    """' · 6/8 conditions at target (10 repeats)' meta-line suffix - a one-glance rollup so you
+    don't have to open the condition breakdown to see whether this method's repeats have caught
+    up to registry.yaml's planned_repeats target. Empty string when no target is set yet."""
+    if not planned_repeats or not condition_rows:
+        return ""
+    at_target = sum(1 for r in condition_rows if combined_repeat_count(r) >= planned_repeats)
+    return f' &middot; {at_target}/{len(condition_rows)} conditions at target ({planned_repeats} repeats)'
+
+
+def render_repeat_cell(row: dict, planned_repeats) -> str:
+    actual = combined_repeat_count(row)
+    if not planned_repeats:
+        return f'<td class="repeat-cell mono">{actual}</td>'
+    cls = "repeat-met" if actual >= planned_repeats else "repeat-short"
+    return f'<td class="repeat-cell mono {cls}">{actual}/{planned_repeats}</td>'
+
+
+def render_condition_detail_row(row: dict, machines: list, planned_repeats) -> str:
     stem = esc(row["stem"])
-    cells = []
+    cells = [render_repeat_cell(row, planned_repeats)]
     for m in machines:
         runs = row["by_machine"].get(m, [])
         if not runs:
@@ -398,7 +445,16 @@ def render_condition_detail_row(row: dict, machines: list) -> str:
         run_bits = []
         for run in sorted(runs, key=lambda r: (r.get("seed") is None, r.get("seed"))):
             seed = run["seed"] if run["seed"] is not None else "?"
-            pct = f'{run["progress"] * 100:.0f}%' if run.get("progress") is not None else "n/a"
+            # done always shows a flat 100.0% rather than its raw percentage (scan_status.py
+            # rounds env_steps/max_env_steps to the nearest whole percent for the done check, so
+            # a done run's raw value can be ~99%, not just >=100%) - the pill's color (done =
+            # green) and its number must never disagree.
+            if run["status"] == "done":
+                pct = "100.0%"
+            elif run.get("progress") is not None:
+                pct = fmt_pct(run["progress"])
+            else:
+                pct = "n/a"
             cls = _STATUS_CLASS.get(run["status"], "st-muted")
             run_bits.append(
                 f'<span class="run-pill {cls}" title="{esc(fmt_env_steps(run.get("env_steps")))}'
@@ -418,12 +474,17 @@ def render_method_card(method: dict, machines: list) -> str:
     started = esc(meta.get("started") or "—")
     reg_status_label = _REG_STATUS_LABEL.get(reg_status, reg_status)
 
+    planned_repeats = meta.get("planned_repeats")
+
     machine_rows = "".join(render_machine_row(mv) for mv in method["machine_views"])
-    detail_rows = "".join(render_condition_detail_row(r, machines) for r in method["condition_rows"])
+    detail_rows = "".join(
+        render_condition_detail_row(r, machines, planned_repeats) for r in method["condition_rows"]
+    )
     header_cells = "".join(f"<th>{esc(m)}</th>" for m in machines)
+    repeats_header = f"repeats /{planned_repeats}" if planned_repeats else "repeats"
     detail_table = (
-        f'<table class="cond-table"><thead><tr><th>condition</th>{header_cells}</tr></thead>'
-        f"<tbody>{detail_rows}</tbody></table>"
+        f'<table class="cond-table"><thead><tr><th>condition</th><th>{repeats_header}</th>'
+        f"{header_cells}</tr></thead><tbody>{detail_rows}</tbody></table>"
         if detail_rows
         else '<p class="muted-note">no conditions/ found</p>'
     )
@@ -435,7 +496,7 @@ def render_method_card(method: dict, machines: list) -> str:
             <span class="reg-status reg-{esc(reg_status)}">{reg_status_label}</span>
           </div>
           <p class="method-purpose">{purpose}</p>
-          <div class="meta-line">Started: <span class="mono">{started}</span>{f' &middot; {note}' if note else ''}</div>
+          <div class="meta-line">Started: <span class="mono">{started}</span>{repeats_summary_html(method["condition_rows"], planned_repeats)}{f' &middot; {note}' if note else ''}</div>
           <div class="machine-rows">{machine_rows}</div>
           <details class="cond-details">
             <summary>Condition breakdown ({method["n_conditions"]} conditions)</summary>
@@ -765,6 +826,9 @@ table.cond-table td {
 }
 .stem-cell { font-family: "JetBrains Mono", ui-monospace, monospace; color: var(--text-secondary); max-width: 260px; }
 .cell-empty { color: var(--text-muted); }
+.repeat-cell { color: var(--text-secondary); white-space: nowrap; }
+.repeat-cell.repeat-met { color: var(--good); font-weight: 600; }
+.repeat-cell.repeat-short { color: var(--stalled); }
 .run-pill {
   display: inline-block;
   font-family: "JetBrains Mono", ui-monospace, monospace;

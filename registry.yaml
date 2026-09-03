@@ -2,9 +2,11 @@
 #
 # "Why am I running this?" catalog, in two tiers matching how the dashboard groups things:
 #
-#   experiments: one entry per EXPERIMENT folder (automation/nested_learning/<name> - the
-#                directory that groups a family of training-method subfolders, e.g.
-#                passive_joint_evaluation, multi_gate_training, neural_memory_evaluation).
+#   experiments: one entry per EXPERIMENT folder (automation/<group>/<name> - the directory that
+#                groups a family of training-method subfolders, e.g. passive_joint_evaluation,
+#                pretrained_evaluation, neural_memory_evaluation). <group> is currently one of
+#                nested_learning or evolutionary_learning (automation/reinforcement_learning, the
+#                third group this file used to reference, no longer exists on disk - removed).
 #                This is the level the dashboard's top-level cards are keyed on, and where its
 #                headline "how far along is this experiment overall" rollup is computed from.
 #
@@ -15,20 +17,32 @@
 #                dashboard shows once you open an experiment card's method breakdown.
 #
 # A method's experiment is derived automatically (build_dashboard.py: the first 3 "/"-separated
-# path segments, e.g. "automation/nested_learning/neural_memory_evaluation/velocity_masked/cmaes"
-# groups under "automation/nested_learning/neural_memory_evaluation") - no separate grouping
-# field needed, just keep every method's key nested under its matching experiments: entry.
+# path segments, e.g. "automation/evolutionary_learning/neural_memory_evaluation/velocity_masked/
+# cmaes" groups under "automation/evolutionary_learning/neural_memory_evaluation") - no separate
+# grouping field needed, just keep every method's key nested under its matching experiments: entry.
 #
 # Both are hand-maintained, not generated - add an experiments: entry when you create a new
-# automation/nested_learning/<name> folder, and a methods: entry whenever you add a line to
+# automation/<group>/<name> folder, and a methods: entry whenever you add a line to
 # train_auto.sh's configs[] (active or commented-out/paused alike - paused series are still
-# worth remembering "why").
+# worth remembering "why"). automation/nested_learning/test/ is intentionally NOT registered here
+# - it's a from-scratch template/reference area (see neural_memory_evaluation/README.md's "タス
+# クは walk ではなく bound" section for why it's cited as a template), not a tracked series.
 #
 # experiments: fields - label, plan_ref, purpose (see methods: below for the same fields'
 # meaning - identical shape, just one level up).
 # methods: fields - label (short - the experiment's own label already gives the context),
 # purpose, status (active | paused | done | abandoned - your own bookkeeping, not derived from
-# runs), started (YYYY-MM-DD or null), note.
+# runs), started (YYYY-MM-DD or null), note, planned_repeats (int or null).
+#
+# planned_repeats: the target number of repeat runs (distinct seeds) you intend EACH condition
+# in this method to eventually reach in total, combined across all 3 machines - NOT the same
+# number as a single train_auto.sh invocation's REPEATS (that's a per-run batch size on one
+# machine; round-robin repeats across many invocations/machines accumulate well past it, which
+# is exactly why results/ can hold many times more run folders than conditions/ has yaml files).
+# This is the one hand-maintained "how many, total" target; the actual observed count is
+# read-only data scan_status.py already derives per machine (each condition's run_count in
+# status/<machine>.json) and build_dashboard.py sums across machines (deduped by seed) to show
+# against this target. Leave null until you've decided a target for that method's series.
 
 experiments:
   automation/nested_learning/passive_joint_evaluation:
@@ -38,30 +52,44 @@ experiments:
       Evaluate the effect of passive elasticity (joint passive compliance via SkinNetwork) on
       learning and gait. The foundational experiment series for body memory.
 
-  automation/nested_learning/multi_gate_training:
-    label: "Multi-Gate Training"
+  automation/nested_learning/pretrained_evaluation:
+    label: "Pretrained Evaluation"
     plan_ref: "documents/plan.md Sec.12.5 Experiment 4 (E4): multi-gait generalization of a fixed passive body"
     purpose: >-
-      E4: whether a single passive body design (skin) generalizes across multiple gaits
-      (bound/walk etc.), and quantifying the division of labor between active muscle and
-      passive skin.
+      Renamed from multi_gate_training (same folder, same plan_ref) - now covers two related but
+      distinct frozen-body setups: codesign_td3/ keeps E4's original scope (freeze a body trained
+      on the bound task, co-design-train only a new controller for the WALK task, testing
+      multi-gait generalization of a single passive body). td3/ has since been narrowed to a
+      different, related question on the BOUND task itself - freeze an already-completed td3
+      bound-task run's own skin and retrain against that SAME task from the frozen body, with a
+      commented-out ep_network.neural.pretrained_path scaffold (embodied_perceptron.py's
+      load_pretrained_neural_config(), extended to accept full-agent checkpoints) sitting ready
+      for a future random-vs-pretrained neural-controller-init ablation on top of that frozen
+      skin. NOTE: documents/plan.md Sec.12.5 still cites the old multi_gate_training path - not
+      yet updated for this rename.
 
-  automation/nested_learning/neural_memory_evaluation:
+  automation/evolutionary_learning/neural_memory_evaluation:
     label: "Neural Memory Evaluation"
     plan_ref: "documents/plan.md Sec.12.4 Experiment 3 (E3) [core of the first paper]"
     purpose: >-
       E3: whether body memory (muscle tau) and neural memory (mlp/gru/mamba/ctrnn/ltc) are
       substitutes or complements, tested via a full B x C factorial design x 3-level
       observability conditions (Level 1-3). No direct prior work exists for this question -
-      the most novel experiment series in this project.
+      the most novel experiment series in this project. Moved here from
+      automation/nested_learning/ (top-level group renamed nested_learning -> evolutionary_
+      learning for this series, reflecting that it trains exclusively via CMA-ES/
+      codesign.mode "cmaes_joint", not TD3/PPO gradient updates - see the series' own
+      README.md "学習方法" section for why gradient training cannot correctly optimize a
+      stateful actor in this repo).
 
 methods:
   automation/nested_learning/passive_joint_evaluation/td3:
     label: "TD3"
     purpose: "Plain TD3 (no co-design) series, isolating the passive-joint effect alone."
-    status: active
+    status: paused
     started: 2026-08-14
-    note: "results itself is DVC-managed (passive_joint_evaluation.dvc) - on a machine that hasn't pulled it, neither conditions/ nor results/ exist"
+    note: "results itself is DVC-managed (passive_joint_evaluation.dvc) - on a machine that hasn't pulled it, neither conditions/ nor results/ exist. Was active; now commented out in train_auto.sh (only pretrained_evaluation/td3 is currently enabled there) - resume by uncommenting."
+    planned_repeats: 10
 
   automation/nested_learning/passive_joint_evaluation/codesign_td3:
     label: "Co-design TD3"
@@ -71,43 +99,61 @@ methods:
     status: paused
     started: null
     note: "commented out in train_auto.sh - planned to start once the td3 series settles down"
+    planned_repeats: 10
 
-  automation/nested_learning/multi_gate_training/td3:
+  automation/nested_learning/pretrained_evaluation/td3:
     label: "TD3"
-    purpose: "Version that only retrains td3 against a frozen body."
-    status: paused
+    purpose: >-
+      Freeze an already-completed td3 bound-task run's skin and retrain the SAME bound task
+      (not walk) from that frozen body - condition filenames carry a "_pretrained" suffix to
+      mark the frozen/pretrained-body variant. Currently only 2 conditions exist
+      (fore/hind, unfixed initial pose, p12 passive-joint condition); each has a commented-out
+      ep_network.neural.pretrained_path/freeze_pretrained block ready for a future run that also
+      warm-starts the neural controller instead of the random init currently used, for a
+      random-vs-pretrained controller-init comparison against the SAME frozen skin.
+    status: active
     started: null
-    note: "conditions/ not yet generated (only the codesign_td3 series currently exists). Also commented out in train_auto.sh"
+    note: >-
+      Renamed from multi_gate_training/td3 - previously this key held 6 walk-task conditions
+      (fore/hind x p1/p2/unfixed-p12) sourced from codesign_td3/passive_joint_evaluation bound
+      checkpoints; conditions/ has since been replaced with the 2 "_pretrained" bound-task
+      conditions described above. The only currently-uncommented line in train_auto.sh's
+      configs[] - exact start date of this new content unconfirmed, left null.
+    planned_repeats: 10
 
-  automation/nested_learning/multi_gate_training/codesign_td3:
+  automation/nested_learning/pretrained_evaluation/codesign_td3:
     label: "Co-design TD3"
     purpose: >-
       Freeze the body (skin) trained on the bound task, and co-design-train only a new neural
       controller for the walk task with co-design TD3.
     status: paused
     started: null
-    note: "conditions/ already exists. Commented out in train_auto.sh - planned to start once E3 settles down"
+    note: "Renamed from multi_gate_training/codesign_td3 - content unchanged (6 walk conditions, fore/hind x p1/p2/unfixed-p12). Commented out in train_auto.sh - planned to start once the td3 series (see above) settles down"
+    planned_repeats: 10
 
-  automation/nested_learning/neural_memory_evaluation/cmaes:
+  automation/evolutionary_learning/neural_memory_evaluation/cmaes:
     label: "Level 1 - full observation"
     purpose: "First of the 3 stages: see the basic B x C trend under full observation (the control condition)."
-    status: active
+    status: paused
     started: 2026-09-02
-    note: "20 conditions. Must complete smoke_test/cmaes and smoke_test/partial_observability/cmaes before production runs (see README)"
+    note: "20 conditions. Must complete smoke_test/cmaes and smoke_test/partial_observability/cmaes before production runs (see README). Was active; now commented out in train_auto.sh alongside the other 2 levels while pretrained_evaluation/td3 runs - resume by uncommenting."
+    planned_repeats: 10
 
-  automation/nested_learning/neural_memory_evaluation/velocity_masked/cmaes:
+  automation/evolutionary_learning/neural_memory_evaluation/velocity_masked/cmaes:
     label: "Level 2 - velocity masked"
     purpose: "Always mask velocity observations to make it a POMDP. Minimal check of whether memory is actually required for the task."
-    status: active
+    status: paused
     started: 2026-09-02
-    note: "20 conditions. Recommended order is to confirm the Level 1 trend first before committing here (see README)"
+    note: "20 conditions. Recommended order is to confirm the Level 1 trend first before committing here (see README). Was active; now commented out in train_auto.sh alongside the other 2 levels while pretrained_evaluation/td3 runs - resume by uncommenting."
+    planned_repeats: 10
 
-  automation/nested_learning/neural_memory_evaluation/memory_horizon_sweep/cmaes:
+  automation/evolutionary_learning/neural_memory_evaluation/memory_horizon_sweep/cmaes:
     label: "Level 3 - memory horizon sweep"
     purpose: >-
       Velocity masking + a sweep of the position update interval over {2,4,8} steps. The
       main event: draws the boundary between what body tau can cover and where neural memory
       becomes necessary.
-    status: active
+    status: paused
     started: 2026-09-02
-    note: "60 conditions, the most computationally expensive stage. Recommended order: confirm the effect on Level 1/2 first, then scale up to the full seed count (see README)"
+    note: "60 conditions, the most computationally expensive stage. Recommended order: confirm the effect on Level 1/2 first, then scale up to the full seed count (see README). Was active; now commented out in train_auto.sh alongside the other 2 levels while pretrained_evaluation/td3 runs - resume by uncommenting."
+    planned_repeats: 10
