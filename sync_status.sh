@@ -25,7 +25,7 @@
 #   nohup ./sync_status.sh 1800 > sync_status.log 2>&1 &
 set -uo pipefail
 
-INTERVAL="${1:-1800}"
+INTERVAL="${1:-600}"
 ONCE=false
 [[ "${2:-}" == "--once" ]] && ONCE=true
 
