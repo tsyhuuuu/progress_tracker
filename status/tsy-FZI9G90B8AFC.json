@@ -1,6 +1,6 @@
 {
   "machine": "tsy-FZI9G90B8AFC",
-  "generated_at": 1788442416,
+  "generated_at": 1788443022,
   "repo_root": "/home/tsy/Documents/TeamL_EP/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/neural_size_evaluation/td3": {
@@ -326,12 +326,12 @@
             {
               "run": "2026-09-03_20-21-58",
               "seed": 3,
-              "status": "active",
-              "step": 780000,
-              "env_steps": 977500,
+              "status": "done",
+              "step": 790000,
+              "env_steps": 990000,
               "max_env_steps": 1000000,
-              "progress": 0.9775,
-              "last_update": 1788442412
+              "progress": 0.99,
+              "last_update": 1788442513
             }
           ]
         }
@@ -343,25 +343,46 @@
         {
           "stem": "td3_forebipedrobot2dunfixed-bound_4_bi_exp",
           "max_env_steps": 1000000,
-          "run_count": 1,
+          "run_count": 2,
           "runs": [
             {
               "run": "2026-09-03_21-07-35",
               "seed": 1,
-              "status": "active",
-              "step": 740000,
-              "env_steps": 927500,
+              "status": "done",
+              "step": 790000,
+              "env_steps": 990000,
               "max_env_steps": 1000000,
-              "progress": 0.9275,
-              "last_update": 1788442366
+              "progress": 0.99,
+              "last_update": 1788442705
+            },
+            {
+              "run": "2026-09-03_22-38-04",
+              "seed": 3,
+              "status": "active",
+              "step": 40000,
+              "env_steps": 52500,
+              "max_env_steps": 1000000,
+              "progress": 0.0525,
+              "last_update": 1788442961
             }
           ]
         },
         {
           "stem": "td3_hindbipedrobot2dunfixed-bound_4_bi_exp",
           "max_env_steps": 1000000,
-          "run_count": 0,
-          "runs": []
+          "run_count": 1,
+          "runs": [
+            {
+              "run": "2026-09-03_22-39-33",
+              "seed": 1,
+              "status": "active",
+              "step": 30000,
+              "env_steps": 40000,
+              "max_env_steps": 1000000,
+              "progress": 0.04,
+              "last_update": 1788442983
+            }
+          ]
         },
         {
           "stem": "td3_quadrupedrobot3dfixed-run_12_bi_exp",
@@ -811,11 +832,11 @@
               "run": "2026-09-03_20-31-11",
               "seed": 1,
               "status": "active",
-              "step": 87,
-              "env_steps": 3480000,
+              "step": 94,
+              "env_steps": 3760000,
               "max_env_steps": 4000000,
-              "progress": 0.87,
-              "last_update": 1788442410
+              "progress": 0.94,
+              "last_update": 1788442993
             }
           ]
         },
@@ -980,11 +1001,11 @@
               "run": "2026-09-03_20-36-26",
               "seed": 1,
               "status": "active",
-              "step": 82,
-              "env_steps": 3280000,
+              "step": 89,
+              "env_steps": 3560000,
               "max_env_steps": 4000000,
-              "progress": 0.82,
-              "last_update": 1788442372
+              "progress": 0.89,
+              "last_update": 1788442960
             }
           ]
         },
