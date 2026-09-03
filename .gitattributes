@@ -1,0 +1,16 @@
+# Pin every text file's line endings to LF, in BOTH the repository and the working tree,
+# overriding whatever any given machine's own core.autocrlf happens to be set to. This repo is
+# synced across 3 machines (Mac / Windows / Ubuntu) via sync_status.sh's automated
+# `git pull --rebase --autostash` loop - on a Windows machine with core.autocrlf=true (the
+# default `git config --global` picks on Windows), that previously meant a file edited here and
+# a file pulled from origin could differ ONLY by CRLF vs LF, which git's line-based merge treats
+# as "every single line changed" - a stash-pop or rebase then reports a full-file conflict even
+# when the actual content is byte-identical after normalizing (see the incident around
+# 2026-09-03 13:36 in this repo's history: build_dashboard.py "conflicted" against itself this
+# way). eol=lf makes that class of false conflict impossible.
+* text=auto eol=lf
+
+# Shell scripts specifically must never get CRLF - unlike a false-conflict-only annoyance
+# elsewhere, a CRLF shebang line fails outright on Mac/Linux (bad interpreter / syntax errors),
+# so this is enforced even more directly than the blanket rule above.
+*.sh text eol=lf
