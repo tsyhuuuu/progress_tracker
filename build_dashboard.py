@@ -102,23 +102,47 @@ def method_touched_anywhere(method_path: str, cond_stem: str, statuses: dict) ->
     return False
 
 
-def machine_summary_for_method(exp: dict) -> dict:
-    """One machine's view of one method dir: run-status counts, mean progress, condition
-    coverage. exp is a scan_status.py experiment entry (already known 'available')."""
+def machine_summary_for_method(exp: dict, planned_repeats) -> dict:
+    """One machine's view of one method dir: run-status counts, repeat-target-aware progress,
+    condition coverage. exp is a scan_status.py experiment entry (already known 'available').
+
+    mean_progress is NOT a flat average of every run's own progress - that would show e.g. 99%
+    for a condition with 2/10 planned repeats just because the 2 that exist both individually
+    finished, which reads as "nearly done" when really only 1/5 of the planned work exists. It
+    weights each condition against planned_repeats instead: a condition's contribution is
+    achieved-progress-toward-planned_repeats target repeat "slots", so 2 finished repeats out of
+    a 10-repeat target contribute 2/10 = 20%, not 2/2 = 100%. A "done" run always counts as a
+    full 1.0 slot regardless of its raw progress field (scan_status.py's models/final.pt check
+    can mark a run done at a raw ~99% - see its scan_condition() comment - so re-reading the raw
+    value here would silently reintroduce the same "looks unfinished" problem this exists to
+    fix). Conditions on a method with no planned_repeats set yet fall back to sizing the target
+    off however many runs actually exist (old flat-average behavior, scoped to one condition at a
+    time) since there's no target to weight against."""
     counts = empty_counts()
-    progresses = []
+    achieved = 0.0
+    target = 0.0
     conditions_touched = 0
     for cond in exp.get("conditions", []):
-        if cond.get("runs"):
+        runs = cond.get("runs", [])
+        if runs:
             conditions_touched += 1
-        for run in cond.get("runs", []):
+        cond_target = planned_repeats if planned_repeats else len(runs)
+        cond_achieved = 0.0
+        for run in runs:
             counts[run["status"]] = counts.get(run["status"], 0) + 1
             if run.get("progress") is not None:
-                progresses.append(run["progress"])
-    mean_progress = sum(progresses) / len(progresses) if progresses else None
+                cond_achieved += 1.0 if run["status"] == "done" else min(run["progress"], 1.0)
+        if cond_target > 0:
+            # Cap at the condition's own target so a condition that overshot its planned repeat
+            # count (more runs than planned) can't inflate the rest of the method/group's meter
+            # past what its own target earns it.
+            achieved += min(cond_achieved, cond_target)
+            target += cond_target
+    mean_progress = (achieved / target) if target else None
     return {
         "counts": counts,
-        "progresses": progresses,
+        "achieved": achieved,
+        "target": target,
         "mean_progress": mean_progress,
         "conditions_touched": conditions_touched,
         "conditions_total": len(exp.get("conditions", [])),
@@ -144,7 +168,7 @@ def build_method_view(method_path: str, meta: dict, machines: list, statuses: di
             all_cond_stems.add(cond["stem"])
             for run in cond.get("runs", []):
                 tally["global_counts"][run["status"]] = tally["global_counts"].get(run["status"], 0) + 1
-        summary = machine_summary_for_method(exp)
+        summary = machine_summary_for_method(exp, meta.get("planned_repeats"))
         summary["machine"] = m
         summary["state"] = "ok"
         machine_views.append(summary)
@@ -181,7 +205,8 @@ def aggregate_group(methods: list) -> dict:
     """Roll every method's per-machine summaries up into ONE headline number for the
     experiment card - across all methods, all machines, every run found."""
     counts = empty_counts()
-    progresses = []
+    achieved = 0.0
+    target = 0.0
     conditions_total = 0
     conditions_touched = 0
     for method in methods:
@@ -189,20 +214,44 @@ def aggregate_group(methods: list) -> dict:
             if mv["state"] != "ok":
                 continue
             add_counts(counts, mv["counts"])
-            progresses.extend(mv["progresses"])
+            achieved += mv["achieved"]
+            target += mv["target"]
             conditions_touched += mv["conditions_touched"]
         conditions_total += method["n_conditions"]
-    mean_progress = sum(progresses) / len(progresses) if progresses else None
+    mean_progress = (achieved / target) if target else None
     reg_status_counts = {}
     for method in methods:
         s = method["meta"].get("status", "unknown")
         reg_status_counts[s] = reg_status_counts.get(s, 0) + 1
 
+    # A condition's planned_repeats (registry.yaml) is a target for TOTAL distinct-seed repeats,
+    # not just "every run launched so far finished cleanly" - round-robin repeats land in
+    # separate batches over time, so every existing run being "done" only means nobody has
+    # launched the remaining planned repeats yet, not that this method is actually finished.
+    # Only count a condition short once its method has an actual planned_repeats target set
+    # (null/unset means no target has been decided yet - see registry.yaml's own comment - so
+    # there's nothing to fall short of).
+    repeats_short = 0
+    for method in methods:
+        planned = method["meta"].get("planned_repeats")
+        if not planned:
+            continue
+        for row in method["condition_rows"]:
+            if combined_repeat_count(row) < planned:
+                repeats_short += 1
+
     n_runs = sum(counts.values())
     if counts["active"] > 0:
         state = "active"
-    elif n_runs > 0 and counts["done"] == n_runs:
+    elif n_runs > 0 and counts["done"] == n_runs and repeats_short == 0:
         state = "done"
+    elif n_runs > 0 and counts["done"] == n_runs:
+        # Every launched run finished on its own (all "done", nothing active/stalled) but at
+        # least one condition hasn't reached its planned_repeats target yet - still underway
+        # overall, just waiting on the next batch of repeats to be launched. Previously this
+        # fell through to the "done"/green branch above, which mislabeled a mid-series
+        # experiment as finished.
+        state = "underway"
     else:
         state = "idle"
     if state == "idle":
@@ -219,6 +268,7 @@ def aggregate_group(methods: list) -> dict:
         "reg_status_counts": reg_status_counts,
         "state": state,
         "idle_label": idle_label,
+        "repeats_short": repeats_short,
     }
 
 
@@ -259,9 +309,11 @@ def build_view_model(registry: dict, statuses: dict):
             }
         )
 
-    # Active experiments first (need attention now), then idle/stalled, done last (nothing left
-    # to watch) - stable sort keeps registry.yaml's own order as the tiebreaker within each.
-    _STATE_ORDER = {"active": 0, "idle": 1, "done": 2}
+    # Active experiments first (need attention now), then idle/stalled, then underway (every
+    # launched run finished, but more repeats are still planned - not urgent, just not actually
+    # finished either), done last (nothing left to watch) - stable sort keeps registry.yaml's own
+    # order as the tiebreaker within each.
+    _STATE_ORDER = {"active": 0, "idle": 1, "underway": 2, "done": 3}
     groups.sort(key=lambda g: _STATE_ORDER[g["rollup"]["state"]])
 
     machine_freshness = []
@@ -445,10 +497,12 @@ def render_condition_detail_row(row: dict, machines: list, planned_repeats) -> s
         run_bits = []
         for run in sorted(runs, key=lambda r: (r.get("seed") is None, r.get("seed"))):
             seed = run["seed"] if run["seed"] is not None else "?"
-            # done always shows a flat 100.0% rather than its raw percentage (scan_status.py
-            # rounds env_steps/max_env_steps to the nearest whole percent for the done check, so
-            # a done run's raw value can be ~99%, not just >=100%) - the pill's color (done =
-            # green) and its number must never disagree.
+            # done always shows a flat 100.0% rather than its raw percentage - scan_status.py
+            # calls a run done either from a genuine >=max_env_steps/rounds-to-100% overshoot, OR
+            # from models/final.pt existing (the training loop actually exited, but its last
+            # eval.csv row can lag real completion by up to ~1 eval_freq - see scan_status.py's
+            # scan_condition() comment), so a done run's raw progress can sit well under 100%.
+            # The pill's color (done = green) and its number must never disagree.
             if run["status"] == "done":
                 pct = "100.0%"
             elif run.get("progress") is not None:
@@ -523,7 +577,14 @@ def render_group_card(group: dict, machines: list) -> str:
     method_cards = "".join(render_method_card(m, machines) for m in group["methods"])
 
     state = rollup["state"]
-    state_text = {"active": "In progress", "done": "Done"}.get(state, rollup["idle_label"])
+    state_text = {
+        "active": "In progress",
+        "done": "Done",
+        "underway": (
+            f'Repeats pending ({rollup["repeats_short"]} condition'
+            f'{"s" if rollup["repeats_short"] != 1 else ""} short)'
+        ),
+    }.get(state, rollup["idle_label"])
 
     return f"""
     <section class="group-card">
@@ -794,13 +855,15 @@ header.page-head .sub { color: var(--text-secondary); font-size: 0.92rem; margin
   border-radius: 50%;
   flex: none;
 }
-.dot-active { background: var(--active-dot); box-shadow: 0 0 0 3px var(--active-bg); }
-.dot-done   { background: var(--good-dot); box-shadow: 0 0 0 3px var(--good-bg); }
-.dot-idle   { background: var(--text-muted); box-shadow: 0 0 0 3px var(--muted-bg); }
+.dot-active   { background: var(--active-dot); box-shadow: 0 0 0 3px var(--active-bg); }
+.dot-done     { background: var(--good-dot); box-shadow: 0 0 0 3px var(--good-bg); }
+.dot-idle     { background: var(--text-muted); box-shadow: 0 0 0 3px var(--muted-bg); }
+.dot-underway { background: var(--accent); box-shadow: 0 0 0 3px var(--accent-track); }
 .state-line { display: flex; align-items: center; gap: 7px; font-size: 0.82rem; font-weight: 600; margin: 4px 0 2px; }
 .state-line.state-active { color: var(--active-c); }
 .state-line.state-done { color: var(--good); }
 .state-line.state-idle { color: var(--text-muted); }
+.state-line.state-underway { color: var(--accent); }
 
 .cond-details { margin-top: 12px; }
 .cond-details summary {

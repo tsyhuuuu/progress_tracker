@@ -145,23 +145,37 @@ def scan_condition(exp_dir: Path, cond_yaml: Path, now: float):
             mtime = eval_csv.stat().st_mtime if eval_csv.exists() else run_dir.stat().st_mtime
             seed = read_seed(exp_dir, stem, run_dir.name)
 
+            # models/final.pt is written by utils/logger.py's Logger.finish(), which
+            # trainer/td3_online_trainer.py's train() calls exactly once, right as its while loop
+            # exits for real (max_env_steps budget exhausted, cfg.steps reached, or plateau
+            # convergence) - never on a crash/kill. That while loop is checked every single env
+            # step, not just at eval_freq boundaries, so it can (and typically does) run for up
+            # to one eval_freq's worth of extra steps past the LAST row eval.csv ever gets - no
+            # further eval fires once the budget trips mid-cycle, so that final stretch (often
+            # ~1% of max_env_steps) never lands in eval.csv at all. That's the "finished at 99%"
+            # case: env_steps/max_env_steps genuinely undercounts real completion, and no amount
+            # of rounding fixes it since the gap can exceed a rounding tolerance. final.pt
+            # existing is a direct "the training loop actually finished" signal instead of an
+            # inference from the (structurally lagging) progress ratio, so it takes priority.
+            finished = (run_dir / "models" / "final.pt").exists()
+
             if progress is None:
-                status = "no_eval_yet"
                 step, env_steps = None, None
+                status = "done" if finished else "no_eval_yet"
             else:
                 step, env_steps = progress
-                # >= max_env_steps is the "really did overshoot" case; the OR catches a run
-                # whose last eval tick landed just under the budget (eval.csv is only written at
-                # fixed eval intervals, so hitting env_steps == max_env_steps exactly is more
-                # luck than rule - such a run would sit just under 100% forever and never flip to
-                # done otherwise). Rounded to the nearest WHOLE percent (2 decimals of the
-                # fraction) - e.g. 2,990,000/3,000,000 = 99.67% rounds to 100% and counts as
-                # done. Whichever branch fires, the dashboard/report always display such a run as
-                # a flat 100.0%, not its raw percentage - see build_dashboard.py's render_repeat_
-                # cell-adjacent run-pill code and this file's print_report - so "done" and "shows
-                # 100%" can never disagree.
-                if max_env_steps and (
-                    env_steps >= max_env_steps or round(env_steps / max_env_steps, 2) >= 1.0
+                # The max_env_steps/rounding check below is a fallback for runs from before this
+                # repo tracked final.pt, or any other trainer that doesn't write it - normally
+                # `finished` alone already covers the overshoot case. round()'d to the nearest
+                # WHOLE percent (2 decimals of the fraction) - e.g. 2,990,000/3,000,000 = 99.67%
+                # rounds to 100% and counts as done. Whichever branch fires, the dashboard/report
+                # always display such a run as a flat 100.0%, not its raw percentage - see
+                # build_dashboard.py's render_repeat_cell-adjacent run-pill code and this file's
+                # print_report - so "done" and "shows 100%" can never disagree.
+                if finished or (
+                    max_env_steps and (
+                        env_steps >= max_env_steps or round(env_steps / max_env_steps, 2) >= 1.0
+                    )
                 ):
                     status = "done"
                 elif (now - mtime) < _ACTIVE_THRESHOLD_SEC:
