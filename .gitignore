@@ -1,0 +1,7 @@
+# Machine-specific: the embodied_perceptron checkout path differs per machine. Copy
+# config.yaml.example to config.yaml and edit it locally - never commit config.yaml itself.
+config.yaml
+
+__pycache__/
+*.pyc
+.venv/

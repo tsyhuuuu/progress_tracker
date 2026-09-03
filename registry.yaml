@@ -1,0 +1,113 @@
+# progress_tracker/registry.yaml
+#
+# "Why am I running this?" catalog, in two tiers matching how the dashboard groups things:
+#
+#   experiments: one entry per EXPERIMENT folder (automation/nested_learning/<name> - the
+#                directory that groups a family of training-method subfolders, e.g.
+#                passive_joint_evaluation, multi_gate_training, neural_memory_evaluation).
+#                This is the level the dashboard's top-level cards are keyed on, and where its
+#                headline "how far along is this experiment overall" rollup is computed from.
+#
+#   methods:     one entry per training-method dir (the same shape as train_auto.sh's own
+#                configs[] entries - a directory with a conditions/ subfolder, e.g.
+#                passive_joint_evaluation/td3, neural_memory_evaluation/velocity_masked/cmaes).
+#                This is the level scan_status.py actually scans results/ under, and what the
+#                dashboard shows once you open an experiment card's method breakdown.
+#
+# A method's experiment is derived automatically (build_dashboard.py: the first 3 "/"-separated
+# path segments, e.g. "automation/nested_learning/neural_memory_evaluation/velocity_masked/cmaes"
+# groups under "automation/nested_learning/neural_memory_evaluation") - no separate grouping
+# field needed, just keep every method's key nested under its matching experiments: entry.
+#
+# Both are hand-maintained, not generated - add an experiments: entry when you create a new
+# automation/nested_learning/<name> folder, and a methods: entry whenever you add a line to
+# train_auto.sh's configs[] (active or commented-out/paused alike - paused series are still
+# worth remembering "why").
+#
+# experiments: fields - label, plan_ref, purpose (see methods: below for the same fields'
+# meaning - identical shape, just one level up).
+# methods: fields - label (short - the experiment's own label already gives the context),
+# purpose, status (active | paused | done | abandoned - your own bookkeeping, not derived from
+# runs), started (YYYY-MM-DD or null), note.
+
+experiments:
+  automation/nested_learning/passive_joint_evaluation:
+    label: "Passive Joint Evaluation"
+    plan_ref: "documents/plan.md Sec.3 Dynamic Musculoskeletal Body / implementation status table (L.42, L.138)"
+    purpose: >-
+      Evaluate the effect of passive elasticity (joint passive compliance via SkinNetwork) on
+      learning and gait. The foundational experiment series for body memory.
+
+  automation/nested_learning/multi_gate_training:
+    label: "Multi-Gate Training"
+    plan_ref: "documents/plan.md Sec.12.5 Experiment 4 (E4): multi-gait generalization of a fixed passive body"
+    purpose: >-
+      E4: whether a single passive body design (skin) generalizes across multiple gaits
+      (bound/walk etc.), and quantifying the division of labor between active muscle and
+      passive skin.
+
+  automation/nested_learning/neural_memory_evaluation:
+    label: "Neural Memory Evaluation"
+    plan_ref: "documents/plan.md Sec.12.4 Experiment 3 (E3) [core of the first paper]"
+    purpose: >-
+      E3: whether body memory (muscle tau) and neural memory (mlp/gru/mamba/ctrnn/ltc) are
+      substitutes or complements, tested via a full B x C factorial design x 3-level
+      observability conditions (Level 1-3). No direct prior work exists for this question -
+      the most novel experiment series in this project.
+
+methods:
+  automation/nested_learning/passive_joint_evaluation/td3:
+    label: "TD3"
+    purpose: "Plain TD3 (no co-design) series, isolating the passive-joint effect alone."
+    status: active
+    started: 2026-08-14
+    note: "results itself is DVC-managed (passive_joint_evaluation.dvc) - on a machine that hasn't pulled it, neither conditions/ nor results/ exist"
+
+  automation/nested_learning/passive_joint_evaluation/codesign_td3:
+    label: "Co-design TD3"
+    purpose: >-
+      Same passive-elasticity effect check, but run with co-design TD3 that jointly optimizes
+      the body (muscle/skin) and the neural controller. Comparison target for the td3 series.
+    status: paused
+    started: null
+    note: "commented out in train_auto.sh - planned to start once the td3 series settles down"
+
+  automation/nested_learning/multi_gate_training/td3:
+    label: "TD3"
+    purpose: "Version that only retrains td3 against a frozen body."
+    status: paused
+    started: null
+    note: "conditions/ not yet generated (only the codesign_td3 series currently exists). Also commented out in train_auto.sh"
+
+  automation/nested_learning/multi_gate_training/codesign_td3:
+    label: "Co-design TD3"
+    purpose: >-
+      Freeze the body (skin) trained on the bound task, and co-design-train only a new neural
+      controller for the walk task with co-design TD3.
+    status: paused
+    started: null
+    note: "conditions/ already exists. Commented out in train_auto.sh - planned to start once E3 settles down"
+
+  automation/nested_learning/neural_memory_evaluation/cmaes:
+    label: "Level 1 - full observation"
+    purpose: "First of the 3 stages: see the basic B x C trend under full observation (the control condition)."
+    status: active
+    started: 2026-09-02
+    note: "20 conditions. Must complete smoke_test/cmaes and smoke_test/partial_observability/cmaes before production runs (see README)"
+
+  automation/nested_learning/neural_memory_evaluation/velocity_masked/cmaes:
+    label: "Level 2 - velocity masked"
+    purpose: "Always mask velocity observations to make it a POMDP. Minimal check of whether memory is actually required for the task."
+    status: active
+    started: 2026-09-02
+    note: "20 conditions. Recommended order is to confirm the Level 1 trend first before committing here (see README)"
+
+  automation/nested_learning/neural_memory_evaluation/memory_horizon_sweep/cmaes:
+    label: "Level 3 - memory horizon sweep"
+    purpose: >-
+      Velocity masking + a sweep of the position update interval over {2,4,8} steps. The
+      main event: draws the boundary between what body tau can cover and where neural memory
+      becomes necessary.
+    status: active
+    started: 2026-09-02
+    note: "60 conditions, the most computationally expensive stage. Recommended order: confirm the effect on Level 1/2 first, then scale up to the full seed count (see README)"
