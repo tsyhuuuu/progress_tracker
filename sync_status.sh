@@ -53,18 +53,15 @@ run_once() {
     # (previously this only ran right before a push, so a quiet machine never saw anyone else's
     # updates). --autostash guards against local status/ edits (there shouldn't be any -
     # status/*.json is machine-written, not hand-edited) getting in the way of the rebase.
-    log "pulling latest status from remote..."
     if ! git pull --rebase --autostash -q origin "$branch"; then
         log "git pull failed (network down?) - continuing with local state"
     fi
 
-    log "scanning local progress..."
-
-    # Capture scan_status.py's stdout (while still showing it live) so we can pull out its
-    # "wrote <path>" line below - that's the one file we're allowed to touch this iteration.
+    # Capture scan_status.py's stdout silently (not shown to the terminal) so we can pull out
+    # its "wrote <path>" line below - that's the one file we're allowed to touch this iteration.
     local scan_log
     scan_log="$(mktemp)"
-    if ! uv run python scan_status.py --report | tee "$scan_log"; then
+    if ! uv run python scan_status.py --report > "$scan_log" 2>&1; then
         log "scan_status.py failed, skipping this iteration"
         rm -f "$scan_log"
         return 1
@@ -116,7 +113,7 @@ run_once() {
         return 1
     fi
 
-    log "pushed ${status_rel} for ${host}"
+    log "git push succeeded"
     return 0
 }
 
