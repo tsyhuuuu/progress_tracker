@@ -272,10 +272,38 @@ def aggregate_group(methods: list) -> dict:
     }
 
 
+def discover_unregistered_methods(statuses: dict, methods_registry: dict) -> dict:
+    """Method paths that show up in some machine's status/<machine>.json but have no
+    registry.yaml methods: entry - e.g. a train_auto.sh configs[] line scanned on one machine
+    before anyone got around to registering it, or a path left over under an OLD registry.yaml
+    key from before a rename (see registry.yaml's own "Renamed from ..." notes) that hasn't
+    aged out of every machine's status/*.json yet. registry.yaml is deliberately hand-maintained
+    (see its header comment) - but that must mean "purpose text can lag", never "scanned,
+    committed, pushed data silently never shown because no one remembered to register it first".
+    Returns a synthetic meta dict per undiscovered path, flagged via reg_status "unregistered" so
+    render_method_card can call it out and point back at registry.yaml."""
+    found = {}
+    for st in statuses.values():
+        for path in st.get("experiments", {}):
+            if path not in methods_registry and path not in found:
+                found[path] = {
+                    "label": path.rsplit("/", 1)[-1],
+                    "purpose": "",
+                    "status": "unregistered",
+                    "started": None,
+                    "note": "not in registry.yaml's methods: yet - add an entry there to give this a purpose/label/planned_repeats.",
+                    "planned_repeats": None,
+                }
+    return found
+
+
 def build_view_model(registry: dict, statuses: dict):
     machines = sorted(statuses.keys())
     experiments_meta = registry.get("experiments", {})
     methods_registry = registry.get("methods", {})
+    # Registered entries always win their own key; discovery only ever fills in paths
+    # registry.yaml doesn't mention at all, so this ordering is defensive, not load-bearing.
+    all_methods = {**discover_unregistered_methods(statuses, methods_registry), **methods_registry}
 
     tally = {
         "global_counts": empty_counts(),
@@ -284,7 +312,7 @@ def build_view_model(registry: dict, statuses: dict):
     }
 
     methods_by_group = {}
-    for method_path, meta in methods_registry.items():
+    for method_path, meta in all_methods.items():
         mv = build_method_view(method_path, meta, machines, statuses, tally)
         methods_by_group.setdefault(group_key(method_path), []).append(mv)
 
@@ -394,6 +422,7 @@ _REG_STATUS_LABEL = {
     "paused": "Paused",
     "done": "Done",
     "abandoned": "Abandoned",
+    "unregistered": "⚠ Not in registry.yaml",
 }
 
 
@@ -813,6 +842,7 @@ header.page-head .sub { color: var(--text-secondary); font-size: 0.92rem; margin
   white-space: nowrap;
 }
 .reg-active { color: var(--accent); border-color: var(--accent); }
+.reg-unregistered { color: var(--stalled); border-color: var(--stalled); font-weight: 600; }
 .method-purpose { color: var(--text-secondary); font-size: 0.84rem; line-height: 1.5; margin: 6px 0 4px; max-width: 65ch; }
 .meta-line { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 10px; }
 
