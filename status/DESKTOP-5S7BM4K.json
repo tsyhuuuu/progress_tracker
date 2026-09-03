@@ -1,1166 +1,150 @@
 {
   "machine": "DESKTOP-5S7BM4K",
-  "generated_at": 1788421991,
+  "generated_at": 1788437879,
   "repo_root": "D:\\ProgramData\\docker\\embodied_perceptron\\embodied_perceptron",
   "experiments": {
-    "automation/nested_learning/passive_joint_evaluation/td3": {
+    "automation/nested_learning/neural_size_evaluation/td3": {
+      "available": false,
+      "note": "directory not present on this machine"
+    },
+    "automation/nested_learning/neural_activation_evaluation/td3": {
+      "available": false,
+      "note": "directory not present on this machine"
+    },
+    "automation/nested_learning/muscle_activation_evaluation/td3": {
+      "available": false,
+      "note": "directory not present on this machine"
+    },
+    "automation/nested_learning/neural_and_embodied_comparison/td3": {
+      "available": false,
+      "note": "directory not present on this machine"
+    },
+    "automation/evolutionary_learning/neural_memory_evaluation/smoke_test/cmaes": {
       "available": true,
       "conditions": [
         {
-          "stem": "td3_forebipedrobot2dunfixed-bound_32_bi",
-          "max_env_steps": 3000000,
-          "run_count": 10,
+          "stem": "cmaes_smoke_ctrl-ctrnn",
+          "max_env_steps": 20000,
+          "run_count": 1,
           "runs": [
             {
-              "run": "2026-08-14_12-24-11",
+              "run": "2026-09-03_10-18-50",
               "seed": 1,
               "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787130009
-            },
-            {
-              "run": "2026-08-14_12-24-18",
-              "seed": 3,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1786748516
-            },
-            {
-              "run": "2026-08-18_01-58-12",
-              "seed": 2,
-              "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787198970
-            },
-            {
-              "run": "2026-08-18_02-08-21",
-              "seed": 4,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787047850
-            },
-            {
-              "run": "2026-08-19_06-20-43",
-              "seed": 6,
-              "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787160432
-            },
-            {
-              "run": "2026-08-22_15-35-59",
-              "seed": 7,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787440150
-            },
-            {
-              "run": "2026-08-24_01-58-30",
-              "seed": 5,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787563101
-            },
-            {
-              "run": "2026-08-25_04-36-03",
-              "seed": 8,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787659879
-            },
-            {
-              "run": "2026-08-27_13-20-36",
-              "seed": 9,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787858933
-            },
-            {
-              "run": "2026-08-29_16-40-32",
-              "seed": 10,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1788044747
+              "step": 5,
+              "env_steps": 20000,
+              "max_env_steps": 20000,
+              "progress": 1.0,
+              "last_update": 1788408475
             }
           ]
         },
         {
-          "stem": "td3_forebipedrobot2dunfixed-bound_32_bi_p1",
-          "max_env_steps": 3000000,
-          "run_count": 10,
+          "stem": "cmaes_smoke_ctrl-gru",
+          "max_env_steps": 20000,
+          "run_count": 1,
           "runs": [
             {
-              "run": "2026-08-14_22-50-02",
+              "run": "2026-09-03_10-19-35",
               "seed": 1,
               "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787140997
-            },
-            {
-              "run": "2026-08-14_23-06-00",
-              "seed": 3,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1786787868
-            },
-            {
-              "run": "2026-08-18_10-03-14",
-              "seed": 2,
-              "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787209029
-            },
-            {
-              "run": "2026-08-18_10-12-48",
-              "seed": 4,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787077529
-            },
-            {
-              "run": "2026-08-19_17-29-21",
-              "seed": 6,
-              "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787199454
-            },
-            {
-              "run": "2026-08-22_23-11-07",
-              "seed": 7,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787467389
-            },
-            {
-              "run": "2026-08-24_09-20-16",
-              "seed": 5,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787590278
-            },
-            {
-              "run": "2026-08-25_12-13-16",
-              "seed": 8,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787687028
-            },
-            {
-              "run": "2026-08-27_19-30-28",
-              "seed": 9,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787881380
-            },
-            {
-              "run": "2026-08-29_23-07-26",
-              "seed": 10,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1788073501
+              "step": 5,
+              "env_steps": 20000,
+              "max_env_steps": 20000,
+              "progress": 1.0,
+              "last_update": 1788408475
             }
           ]
         },
         {
-          "stem": "td3_forebipedrobot2dunfixed-bound_32_bi_p12",
-          "max_env_steps": 3000000,
-          "run_count": 10,
+          "stem": "cmaes_smoke_ctrl-ltc",
+          "max_env_steps": 20000,
+          "run_count": 1,
           "runs": [
             {
-              "run": "2026-08-15_09-30-06",
+              "run": "2026-09-03_10-20-22",
               "seed": 1,
               "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787150656
-            },
-            {
-              "run": "2026-08-15_10-02-07",
-              "seed": 3,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1786827313
-            },
-            {
-              "run": "2026-08-18_18-18-03",
-              "seed": 2,
-              "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787218881
-            },
-            {
-              "run": "2026-08-18_18-27-38",
-              "seed": 4,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787106571
-            },
-            {
-              "run": "2026-08-20_04-19-34",
-              "seed": 6,
-              "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787237937
-            },
-            {
-              "run": "2026-08-23_06-45-05",
-              "seed": 7,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787494479
-            },
-            {
-              "run": "2026-08-24_16-53-12",
-              "seed": 5,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787616861
-            },
-            {
-              "run": "2026-08-25_19-45-44",
-              "seed": 8,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787714248
-            },
-            {
-              "run": "2026-08-28_01-44-37",
-              "seed": 9,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787904250
-            },
-            {
-              "run": "2026-08-30_10-00-28",
-              "seed": 10,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1788109402
+              "step": 5,
+              "env_steps": 20000,
+              "max_env_steps": 20000,
+              "progress": 1.0,
+              "last_update": 1788408475
             }
           ]
         },
         {
-          "stem": "td3_forebipedrobot2dunfixed-bound_32_bi_p2",
-          "max_env_steps": 3000000,
-          "run_count": 10,
+          "stem": "cmaes_smoke_ctrl-mamba",
+          "max_env_steps": 20000,
+          "run_count": 1,
           "runs": [
             {
-              "run": "2026-08-15_20-11-20",
+              "run": "2026-09-03_10-21-05",
               "seed": 1,
               "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787160662
-            },
-            {
-              "run": "2026-08-15_20-59-22",
-              "seed": 3,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1786865755
-            },
-            {
-              "run": "2026-08-20_09-43-23",
-              "seed": 2,
-              "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787257254
-            },
-            {
-              "run": "2026-08-20_15-00-56",
-              "seed": 6,
-              "status": "done",
-              "step": 3160000,
-              "env_steps": 3952500,
-              "max_env_steps": 3000000,
-              "progress": 1.3175,
-              "last_update": 1787277277
-            },
-            {
-              "run": "2026-08-22_11-55-18",
-              "seed": 4,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787425713
-            },
-            {
-              "run": "2026-08-23_14-16-31",
-              "seed": 7,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787521613
-            },
-            {
-              "run": "2026-08-25_00-16-14",
-              "seed": 5,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787643122
-            },
-            {
-              "run": "2026-08-26_03-19-23",
-              "seed": 8,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787741560
-            },
-            {
-              "run": "2026-08-28_08-05-49",
-              "seed": 9,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787926745
-            },
-            {
-              "run": "2026-08-30_17-05-14",
-              "seed": 10,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1788134828
+              "step": 5,
+              "env_steps": 20000,
+              "max_env_steps": 20000,
+              "progress": 1.0,
+              "last_update": 1788408475
             }
           ]
         },
         {
-          "stem": "td3_hindbipedrobot2dunfixed-bound_32_bi",
-          "max_env_steps": 3000000,
-          "run_count": 10,
+          "stem": "cmaes_smoke_ctrl-mlp",
+          "max_env_steps": 20000,
+          "run_count": 1,
           "runs": [
             {
-              "run": "2026-08-16_07-07-50",
+              "run": "2026-09-03_10-21-55",
               "seed": 1,
               "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787116709
-            },
-            {
-              "run": "2026-08-16_07-39-43",
-              "seed": 3,
-              "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787116181
-            },
-            {
-              "run": "2026-08-20_20-23-01",
-              "seed": 2,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787314913
-            },
-            {
-              "run": "2026-08-21_01-59-27",
-              "seed": 6,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787330931
-            },
-            {
-              "run": "2026-08-22_19-10-25",
-              "seed": 4,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787452089
-            },
-            {
-              "run": "2026-08-23_21-48-49",
-              "seed": 7,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787547963
-            },
-            {
-              "run": "2026-08-25_07-33-56",
-              "seed": 5,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787669685
-            },
-            {
-              "run": "2026-08-26_10-54-37",
-              "seed": 8,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787765361
-            },
-            {
-              "run": "2026-08-28_14-20-41",
-              "seed": 9,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787949624
-            },
-            {
-              "run": "2026-08-31_00-08-59",
-              "seed": 10,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1788160690
-            }
-          ]
-        },
-        {
-          "stem": "td3_hindbipedrobot2dunfixed-bound_32_bi_p1",
-          "max_env_steps": 3000000,
-          "run_count": 10,
-          "runs": [
-            {
-              "run": "2026-08-16_18-05-48",
-              "seed": 1,
-              "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787167503
-            },
-            {
-              "run": "2026-08-16_18-25-36",
-              "seed": 3,
-              "status": "done",
-              "step": 2710000,
-              "env_steps": 3390000,
-              "max_env_steps": 3000000,
-              "progress": 1.13,
-              "last_update": 1787120220
-            },
-            {
-              "run": "2026-08-21_12-23-44",
-              "seed": 2,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787341488
-            },
-            {
-              "run": "2026-08-21_16-50-46",
-              "seed": 6,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787357783
-            },
-            {
-              "run": "2026-08-23_02-30-02",
-              "seed": 4,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787479037
-            },
-            {
-              "run": "2026-08-24_05-07-58",
-              "seed": 7,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787575584
-            },
-            {
-              "run": "2026-08-25_14-56-36",
-              "seed": 5,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787696976
-            },
-            {
-              "run": "2026-08-26_17-30-59",
-              "seed": 8,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787788976
-            },
-            {
-              "run": "2026-08-28_20-41-56",
-              "seed": 9,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787972692
-            },
-            {
-              "run": "2026-08-31_07-19-59",
-              "seed": 10,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1788186795
-            }
-          ]
-        },
-        {
-          "stem": "td3_hindbipedrobot2dunfixed-bound_32_bi_p12",
-          "max_env_steps": 3000000,
-          "run_count": 10,
-          "runs": [
-            {
-              "run": "2026-08-17_04-56-55",
-              "seed": 1,
-              "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787177588
-            },
-            {
-              "run": "2026-08-17_05-14-30",
-              "seed": 3,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1786989594
-            },
-            {
-              "run": "2026-08-21_19-46-43",
-              "seed": 2,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787367979
-            },
-            {
-              "run": "2026-08-22_00-18-18",
-              "seed": 6,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787384803
-            },
-            {
-              "run": "2026-08-23_09-59-11",
-              "seed": 4,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787506818
-            },
-            {
-              "run": "2026-08-24_12-48-20",
-              "seed": 7,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787602661
-            },
-            {
-              "run": "2026-08-25_22-31-34",
-              "seed": 5,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787723875
-            },
-            {
-              "run": "2026-08-27_00-04-40",
-              "seed": 8,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787813086
-            },
-            {
-              "run": "2026-08-29_03-06-32",
-              "seed": 9,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787995975
-            },
-            {
-              "run": "2026-08-31_14-35-21",
-              "seed": 10,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1788213013
-            }
-          ]
-        },
-        {
-          "stem": "td3_hindbipedrobot2dunfixed-bound_32_bi_p2",
-          "max_env_steps": 3000000,
-          "run_count": 10,
-          "runs": [
-            {
-              "run": "2026-08-17_17-50-40",
-              "seed": 1,
-              "status": "done",
-              "step": 3190000,
-              "env_steps": 3990000,
-              "max_env_steps": 3000000,
-              "progress": 1.33,
-              "last_update": 1787187241
-            },
-            {
-              "run": "2026-08-17_18-01-56",
-              "seed": 3,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787018350
-            },
-            {
-              "run": "2026-08-22_03-08-11",
-              "seed": 2,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787394265
-            },
-            {
-              "run": "2026-08-22_07-48-39",
-              "seed": 6,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787410890
-            },
-            {
-              "run": "2026-08-23_17-42-15",
-              "seed": 4,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787534282
-            },
-            {
-              "run": "2026-08-24_20-19-37",
-              "seed": 7,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787630142
-            },
-            {
-              "run": "2026-08-26_05-59-48",
-              "seed": 5,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787751350
-            },
-            {
-              "run": "2026-08-27_06-46-26",
-              "seed": 8,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1787834826
-            },
-            {
-              "run": "2026-08-29_09-34-34",
-              "seed": 9,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1788019420
-            },
-            {
-              "run": "2026-08-31_21-52-13",
-              "seed": 10,
-              "status": "done",
-              "step": 2390000,
-              "env_steps": 2990000,
-              "max_env_steps": 3000000,
-              "progress": 0.9967,
-              "last_update": 1788239060
+              "step": 5,
+              "env_steps": 20000,
+              "max_env_steps": 20000,
+              "progress": 1.0,
+              "last_update": 1788408475
             }
           ]
         }
       ]
     },
-    "automation/nested_learning/passive_joint_evaluation/codesign_td3": {
+    "automation/evolutionary_learning/neural_memory_evaluation/smoke_test/partial_observability/cmaes": {
       "available": true,
       "conditions": [
         {
-          "stem": "codesigntd3_forebipedrobot2dunfixed-bound_32_bi",
-          "max_env_steps": 4000000,
-          "run_count": 2,
-          "runs": [
-            {
-              "run": "2026-08-14_08-09-03",
-              "seed": 3,
-              "status": "stalled",
-              "step": 1200024,
-              "env_steps": 1560000,
-              "max_env_steps": 4000000,
-              "progress": 0.39,
-              "last_update": 1786709706
-            },
-            {
-              "run": "2026-08-14_08-09-13",
-              "seed": 1,
-              "status": "done",
-              "step": 3077562,
-              "env_steps": 4007500,
-              "max_env_steps": 4000000,
-              "progress": 1.0019,
-              "last_update": 1786739695
-            }
-          ]
-        },
-        {
-          "stem": "codesigntd3_forebipedrobot2dunfixed-bound_32_bi_p1",
-          "max_env_steps": 4000000,
-          "run_count": 2,
-          "runs": [
-            {
-              "run": "2026-08-13_12-27-48",
-              "seed": 3,
-              "status": "stalled",
-              "step": 2308547,
-              "env_steps": 3013500,
-              "max_env_steps": 4000000,
-              "progress": 0.7534,
-              "last_update": 1786651555
-            },
-            {
-              "run": "2026-08-13_12-31-20",
-              "seed": 1,
-              "status": "done",
-              "step": 3068563,
-              "env_steps": 4013500,
-              "max_env_steps": 4000000,
-              "progress": 1.0034,
-              "last_update": 1786750809
-            }
-          ]
-        },
-        {
-          "stem": "codesigntd3_forebipedrobot2dunfixed-bound_32_bi_p12",
-          "max_env_steps": 4000000,
-          "run_count": 2,
-          "runs": [
-            {
-              "run": "2026-08-13_20-07-01",
-              "seed": 3,
-              "status": "stalled",
-              "step": 2308547,
-              "env_steps": 3013500,
-              "max_env_steps": 4000000,
-              "progress": 0.7534,
-              "last_update": 1786680165
-            },
-            {
-              "run": "2026-08-13_20-14-34",
-              "seed": 1,
-              "status": "done",
-              "step": 3068563,
-              "env_steps": 4013500,
-              "max_env_steps": 4000000,
-              "progress": 1.0034,
-              "last_update": 1786762233
-            }
-          ]
-        },
-        {
-          "stem": "codesigntd3_forebipedrobot2dunfixed-bound_32_bi_p2",
-          "max_env_steps": 4000000,
-          "run_count": 2,
-          "runs": [
-            {
-              "run": "2026-08-14_04-03-49",
-              "seed": 3,
-              "status": "stalled",
-              "step": 1150023,
-              "env_steps": 1495000,
-              "max_env_steps": 4000000,
-              "progress": 0.3738,
-              "last_update": 1786694413
-            },
-            {
-              "run": "2026-08-14_04-10-49",
-              "seed": 1,
-              "status": "done",
-              "step": 3077562,
-              "env_steps": 4007500,
-              "max_env_steps": 4000000,
-              "progress": 1.0019,
-              "last_update": 1786791167
-            }
-          ]
-        },
-        {
-          "stem": "codesigntd3_hindbipedrobot2dunfixed-bound_32_bi",
-          "max_env_steps": 4000000,
+          "stem": "cmaes_smoke_po_refresh-1",
+          "max_env_steps": 20000,
           "run_count": 1,
           "runs": [
             {
-              "run": "2026-08-15_10-53-00",
+              "run": "2026-09-03_10-23-30",
               "seed": 1,
               "status": "done",
-              "step": 3077562,
-              "env_steps": 4007500,
-              "max_env_steps": 4000000,
-              "progress": 1.0019,
-              "last_update": 1786838689
+              "step": 5,
+              "env_steps": 20000,
+              "max_env_steps": 20000,
+              "progress": 1.0,
+              "last_update": 1788408475
             }
           ]
         },
         {
-          "stem": "codesigntd3_hindbipedrobot2dunfixed-bound_32_bi_p1",
-          "max_env_steps": 4000000,
+          "stem": "cmaes_smoke_po_refresh-4",
+          "max_env_steps": 20000,
           "run_count": 1,
           "runs": [
             {
-              "run": "2026-08-16_00-04-59",
+              "run": "2026-09-03_10-24-14",
               "seed": 1,
               "status": "done",
-              "step": 3077562,
-              "env_steps": 4007500,
-              "max_env_steps": 4000000,
-              "progress": 1.0019,
-              "last_update": 1786885977
+              "step": 5,
+              "env_steps": 20000,
+              "max_env_steps": 20000,
+              "progress": 1.0,
+              "last_update": 1788408475
             }
           ]
-        },
-        {
-          "stem": "codesigntd3_hindbipedrobot2dunfixed-bound_32_bi_p12",
-          "max_env_steps": 4000000,
-          "run_count": 1,
-          "runs": [
-            {
-              "run": "2026-08-16_13-13-07",
-              "seed": 1,
-              "status": "done",
-              "step": 3077562,
-              "env_steps": 4007500,
-              "max_env_steps": 4000000,
-              "progress": 1.0019,
-              "last_update": 1786932849
-            }
-          ]
-        },
-        {
-          "stem": "codesigntd3_hindbipedrobot2dunfixed-bound_32_bi_p2",
-          "max_env_steps": 4000000,
-          "run_count": 0,
-          "runs": []
-        }
-      ]
-    },
-    "automation/nested_learning/pretrained_evaluation/td3": {
-      "available": true,
-      "conditions": [
-        {
-          "stem": "td3_forebipedrobot2dunfixed-bound_32_bi_p12_pretrained",
-          "max_env_steps": 3000000,
-          "run_count": 3,
-          "runs": [
-            {
-              "run": "2026-09-02_01-37-46",
-              "seed": 1,
-              "status": "active",
-              "step": 2270000,
-              "env_steps": 2840000,
-              "max_env_steps": 3000000,
-              "progress": 0.9467,
-              "last_update": 1788421936
-            },
-            {
-              "run": "2026-09-02_01-37-53",
-              "seed": 3,
-              "status": "stalled",
-              "step": 1190000,
-              "env_steps": 1490000,
-              "max_env_steps": 3000000,
-              "progress": 0.4967,
-              "last_update": 1788327145
-            },
-            {
-              "run": "2026-09-02_09-45-42",
-              "seed": 4,
-              "status": "active",
-              "step": 2280000,
-              "env_steps": 2852500,
-              "max_env_steps": 3000000,
-              "progress": 0.9508,
-              "last_update": 1788421974
-            }
-          ]
-        },
-        {
-          "stem": "td3_hindbipedrobot2dunfixed-bound_32_bi_p12_pretrained",
-          "max_env_steps": 3000000,
-          "run_count": 4,
-          "runs": [
-            {
-              "run": "2026-09-02_05-33-24",
-              "seed": 1,
-              "status": "stalled",
-              "step": 1190000,
-              "env_steps": 1490000,
-              "max_env_steps": 3000000,
-              "progress": 0.4967,
-              "last_update": 1788341771
-            },
-            {
-              "run": "2026-09-02_05-34-23",
-              "seed": 3,
-              "status": "stalled",
-              "step": 1190000,
-              "env_steps": 1490000,
-              "max_env_steps": 3000000,
-              "progress": 0.4967,
-              "last_update": 1788341724
-            },
-            {
-              "run": "2026-09-02_13-41-04",
-              "seed": 2,
-              "status": "stalled",
-              "step": 1190000,
-              "env_steps": 1490000,
-              "max_env_steps": 3000000,
-              "progress": 0.4967,
-              "last_update": 1788370988
-            },
-            {
-              "run": "2026-09-02_13-41-44",
-              "seed": 4,
-              "status": "stalled",
-              "step": 1190000,
-              "env_steps": 1490000,
-              "max_env_steps": 3000000,
-              "progress": 0.4967,
-              "last_update": 1788370974
-            }
-          ]
-        }
-      ]
-    },
-    "automation/nested_learning/pretrained_evaluation/codesign_td3": {
-      "available": true,
-      "conditions": [
-        {
-          "stem": "codesigntd3_forebipedrobot2d-walk_32_bi_p1",
-          "max_env_steps": 1000000,
-          "run_count": 0,
-          "runs": []
-        },
-        {
-          "stem": "codesigntd3_forebipedrobot2d-walk_32_bi_p2",
-          "max_env_steps": 1000000,
-          "run_count": 0,
-          "runs": []
-        },
-        {
-          "stem": "codesigntd3_forebipedrobot2dunfixed-walk_32_bi_p12",
-          "max_env_steps": 1000000,
-          "run_count": 0,
-          "runs": []
-        },
-        {
-          "stem": "codesigntd3_hindbipedrobot2d-walk_32_bi_p1",
-          "max_env_steps": 1000000,
-          "run_count": 0,
-          "runs": []
-        },
-        {
-          "stem": "codesigntd3_hindbipedrobot2d-walk_32_bi_p2",
-          "max_env_steps": 1000000,
-          "run_count": 0,
-          "runs": []
-        },
-        {
-          "stem": "codesigntd3_hindbipedrobot2dunfixed-walk_32_bi_p12",
-          "max_env_steps": 1000000,
-          "run_count": 0,
-          "runs": []
         }
       ]
     },
