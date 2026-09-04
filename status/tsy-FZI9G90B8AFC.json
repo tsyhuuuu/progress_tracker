@@ -1,6 +1,6 @@
 {
   "machine": "tsy-FZI9G90B8AFC",
-  "generated_at": 1788562135,
+  "generated_at": 1788562740,
   "repo_root": "/home/tsy/Documents/TeamL_EP/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -319,20 +319,31 @@
             {
               "run": "2026-09-05_05-21-09",
               "seed": 1,
-              "status": "active",
-              "step": 97,
-              "env_steps": 3880000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.97,
-              "last_update": 1788562103
+              "progress": 1.0,
+              "last_update": 1788562383
             }
           ]
         },
         {
           "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mlp_tau-off",
           "max_env_steps": 4000000,
-          "run_count": 0,
-          "runs": []
+          "run_count": 1,
+          "runs": [
+            {
+              "run": "2026-09-05_07-53-05",
+              "seed": 1,
+              "status": "active",
+              "step": 4,
+              "env_steps": 160000,
+              "max_env_steps": 4000000,
+              "progress": 0.04,
+              "last_update": 1788562724
+            }
+          ]
         },
         {
           "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mlp_tau-on",
@@ -642,20 +653,31 @@
             {
               "run": "2026-09-05_05-20-31",
               "seed": 1,
-              "status": "active",
-              "step": 97,
-              "env_steps": 3880000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.97,
-              "last_update": 1788562098
+              "progress": 1.0,
+              "last_update": 1788562375
             }
           ]
         },
         {
           "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mlp_tau-off",
           "max_env_steps": 4000000,
-          "run_count": 0,
-          "runs": []
+          "run_count": 1,
+          "runs": [
+            {
+              "run": "2026-09-05_07-52-57",
+              "seed": 1,
+              "status": "active",
+              "step": 4,
+              "env_steps": 160000,
+              "max_env_steps": 4000000,
+              "progress": 0.04,
+              "last_update": 1788562712
+            }
+          ]
         },
         {
           "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mlp_tau-on",
