@@ -1,6 +1,6 @@
 {
   "machine": "DESKTOP-5S7BM4K",
-  "generated_at": 1788599660,
+  "generated_at": 1788600267,
   "repo_root": "D:\\ProgramData\\docker\\embodied_perceptron\\embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -1116,21 +1116,21 @@
               "run": "2026-09-05_01-50-39",
               "seed": 9,
               "status": "active",
-              "step": 2240000,
-              "env_steps": 2802500,
+              "step": 2290000,
+              "env_steps": 2865000,
               "max_env_steps": 3000000,
-              "progress": 0.9342,
-              "last_update": 1788599636
+              "progress": 0.955,
+              "last_update": 1788600228
             },
             {
               "run": "2026-09-05_01-54-11",
               "seed": 7,
               "status": "active",
-              "step": 2210000,
-              "env_steps": 2765000,
+              "step": 2260000,
+              "env_steps": 2827500,
               "max_env_steps": 3000000,
-              "progress": 0.9217,
-              "last_update": 1788599604
+              "progress": 0.9425,
+              "last_update": 1788600200
             }
           ]
         },
