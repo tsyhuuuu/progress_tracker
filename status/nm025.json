@@ -1,6 +1,6 @@
 {
   "machine": "nm025",
-  "generated_at": 1788595849,
+  "generated_at": 1788596833,
   "repo_root": "/Users/tsy/Documents/osaka_univ/project/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -20,16 +20,976 @@
       "note": "directory not present on this machine"
     },
     "automation/evolutionary_learning/neural_memory_evaluation/cmaes": {
-      "available": false,
-      "note": "directory not present on this machine"
+      "available": true,
+      "conditions": [
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ltc_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ltc_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mamba_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mamba_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mlp_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mlp_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ctrnn_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ctrnn_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-gru_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-gru_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ltc_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ltc_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mamba_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mamba_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mlp_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mlp_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        }
+      ]
     },
     "automation/evolutionary_learning/neural_memory_evaluation/velocity_masked/cmaes": {
-      "available": false,
-      "note": "directory not present on this machine"
+      "available": true,
+      "conditions": [
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ltc_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ltc_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mamba_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mamba_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mlp_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mlp_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ctrnn_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ctrnn_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-gru_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-gru_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ltc_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ltc_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mamba_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mamba_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mlp_tau-off",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mlp_tau-on",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        }
+      ]
     },
     "automation/evolutionary_learning/neural_memory_evaluation/memory_horizon_sweep/cmaes": {
-      "available": false,
-      "note": "directory not present on this machine"
+      "available": true,
+      "conditions": [
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-off_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 5,
+          "runs": [
+            {
+              "run": "2026-09-04_23-55-25",
+              "seed": 1,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788543217
+            },
+            {
+              "run": "2026-09-04_23-55-34",
+              "seed": 3,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788543264
+            },
+            {
+              "run": "2026-09-04_23-55-40",
+              "seed": 5,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788543300
+            },
+            {
+              "run": "2026-09-04_23-55-55",
+              "seed": 7,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788543196
+            },
+            {
+              "run": "2026-09-04_23-56-07",
+              "seed": 9,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788543279
+            }
+          ]
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-off_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 5,
+          "runs": [
+            {
+              "run": "2026-09-05_02-33-18",
+              "seed": 7,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788552779
+            },
+            {
+              "run": "2026-09-05_02-33-38",
+              "seed": 1,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788552851
+            },
+            {
+              "run": "2026-09-05_02-34-26",
+              "seed": 3,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788552779
+            },
+            {
+              "run": "2026-09-05_02-34-41",
+              "seed": 9,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788552871
+            },
+            {
+              "run": "2026-09-05_02-35-02",
+              "seed": 5,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788552848
+            }
+          ]
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-off_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 5,
+          "runs": [
+            {
+              "run": "2026-09-05_05-13-00",
+              "seed": 7,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788562393
+            },
+            {
+              "run": "2026-09-05_05-13-01",
+              "seed": 3,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788562316
+            },
+            {
+              "run": "2026-09-05_05-14-09",
+              "seed": 5,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788562466
+            },
+            {
+              "run": "2026-09-05_05-14-13",
+              "seed": 1,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788562426
+            },
+            {
+              "run": "2026-09-05_05-14-32",
+              "seed": 9,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788562382
+            }
+          ]
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-on_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 5,
+          "runs": [
+            {
+              "run": "2026-09-05_07-51-58",
+              "seed": 3,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788572003
+            },
+            {
+              "run": "2026-09-05_07-53-04",
+              "seed": 9,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788572152
+            },
+            {
+              "run": "2026-09-05_07-53-15",
+              "seed": 7,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788572095
+            },
+            {
+              "run": "2026-09-05_07-53-48",
+              "seed": 1,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788572156
+            },
+            {
+              "run": "2026-09-05_07-54-28",
+              "seed": 5,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788572103
+            }
+          ]
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-on_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 5,
+          "runs": [
+            {
+              "run": "2026-09-05_10-33-25",
+              "seed": 3,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788581647
+            },
+            {
+              "run": "2026-09-05_10-34-57",
+              "seed": 7,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788581821
+            },
+            {
+              "run": "2026-09-05_10-35-04",
+              "seed": 5,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788581935
+            },
+            {
+              "run": "2026-09-05_10-35-54",
+              "seed": 9,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788581890
+            },
+            {
+              "run": "2026-09-05_10-35-57",
+              "seed": 1,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788581964
+            }
+          ]
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-on_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 5,
+          "runs": [
+            {
+              "run": "2026-09-05_13-14-09",
+              "seed": 3,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788591401
+            },
+            {
+              "run": "2026-09-05_13-17-03",
+              "seed": 7,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788591583
+            },
+            {
+              "run": "2026-09-05_13-18-11",
+              "seed": 9,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788591637
+            },
+            {
+              "run": "2026-09-05_13-18-57",
+              "seed": 5,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788591734
+            },
+            {
+              "run": "2026-09-05_13-19-26",
+              "seed": 1,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788591669
+            }
+          ]
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-off_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 5,
+          "runs": [
+            {
+              "run": "2026-09-05_15-56-43",
+              "seed": 3,
+              "status": "active",
+              "step": 51,
+              "env_steps": 2040000,
+              "max_env_steps": 4000000,
+              "progress": 0.51,
+              "last_update": 1788596623
+            },
+            {
+              "run": "2026-09-05_15-59-45",
+              "seed": 7,
+              "status": "active",
+              "step": 50,
+              "env_steps": 2000000,
+              "max_env_steps": 4000000,
+              "progress": 0.5,
+              "last_update": 1788596689
+            },
+            {
+              "run": "2026-09-05_16-00-38",
+              "seed": 9,
+              "status": "active",
+              "step": 49,
+              "env_steps": 1960000,
+              "max_env_steps": 4000000,
+              "progress": 0.49,
+              "last_update": 1788596649
+            },
+            {
+              "run": "2026-09-05_16-01-11",
+              "seed": 1,
+              "status": "active",
+              "step": 48,
+              "env_steps": 1920000,
+              "max_env_steps": 4000000,
+              "progress": 0.48,
+              "last_update": 1788596596
+            },
+            {
+              "run": "2026-09-05_16-02-16",
+              "seed": 5,
+              "status": "active",
+              "step": 48,
+              "env_steps": 1920000,
+              "max_env_steps": 4000000,
+              "progress": 0.48,
+              "last_update": 1788596682
+            }
+          ]
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-off_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-off_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-on_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-on_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-on_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ltc_tau-off_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ltc_tau-off_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ltc_tau-off_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ltc_tau-on_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ltc_tau-on_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ltc_tau-on_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mamba_tau-off_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mamba_tau-off_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mamba_tau-off_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mamba_tau-on_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mamba_tau-on_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mamba_tau-on_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mlp_tau-off_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mlp_tau-off_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mlp_tau-off_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mlp_tau-on_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mlp_tau-on_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mlp_tau-on_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ctrnn_tau-off_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ctrnn_tau-off_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ctrnn_tau-off_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ctrnn_tau-on_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ctrnn_tau-on_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ctrnn_tau-on_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-gru_tau-off_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-gru_tau-off_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-gru_tau-off_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-gru_tau-on_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-gru_tau-on_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-gru_tau-on_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ltc_tau-off_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ltc_tau-off_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ltc_tau-off_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ltc_tau-on_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ltc_tau-on_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ltc_tau-on_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mamba_tau-off_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mamba_tau-off_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mamba_tau-off_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mamba_tau-on_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mamba_tau-on_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mamba_tau-on_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mlp_tau-off_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mlp_tau-off_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mlp_tau-off_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mlp_tau-on_refresh-2",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mlp_tau-on_refresh-4",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        },
+        {
+          "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-mlp_tau-on_refresh-8",
+          "max_env_steps": 4000000,
+          "run_count": 0,
+          "runs": []
+        }
+      ]
     }
   }
 }
