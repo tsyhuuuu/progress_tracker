@@ -1,6 +1,6 @@
 {
   "machine": "tsy-FZI9G90B8AFC",
-  "generated_at": 1788594826,
+  "generated_at": 1788595431,
   "repo_root": "/home/tsy/Documents/TeamL_EP/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -67,19 +67,19 @@
             {
               "run": "2026-09-05_14-59-21",
               "seed": 2,
-              "status": "active",
-              "step": 92,
-              "env_steps": 3680000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.92,
-              "last_update": 1788594794
+              "progress": 1.0,
+              "last_update": 1788595359
             }
           ]
         },
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-off",
           "max_env_steps": 4000000,
-          "run_count": 1,
+          "run_count": 2,
           "runs": [
             {
               "run": "2026-09-03_18-14-50",
@@ -90,6 +90,16 @@
               "max_env_steps": 4000000,
               "progress": 1.0,
               "last_update": 1788435070
+            },
+            {
+              "run": "2026-09-05_17-02-41",
+              "seed": 2,
+              "status": "no_eval_yet",
+              "step": null,
+              "env_steps": null,
+              "max_env_steps": 4000000,
+              "progress": null,
+              "last_update": 1788595362
             }
           ]
         },
@@ -432,19 +442,19 @@
             {
               "run": "2026-09-05_14-51-28",
               "seed": 2,
-              "status": "active",
-              "step": 97,
-              "env_steps": 3880000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.97,
-              "last_update": 1788594792
+              "progress": 1.0,
+              "last_update": 1788595003
             }
           ]
         },
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-off",
           "max_env_steps": 4000000,
-          "run_count": 1,
+          "run_count": 2,
           "runs": [
             {
               "run": "2026-09-03_18-18-01",
@@ -455,6 +465,16 @@
               "max_env_steps": 4000000,
               "progress": 1.0,
               "last_update": 1788435384
+            },
+            {
+              "run": "2026-09-05_16-56-44",
+              "seed": 2,
+              "status": "active",
+              "step": 5,
+              "env_steps": 200000,
+              "max_env_steps": 4000000,
+              "progress": 0.05,
+              "last_update": 1788595394
             }
           ]
         },
