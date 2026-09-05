@@ -1,6 +1,6 @@
 {
   "machine": "tsy-FZI9G90B8AFC",
-  "generated_at": 1788573032,
+  "generated_at": 1788573638,
   "repo_root": "/home/tsy/Documents/TeamL_EP/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -354,11 +354,11 @@
               "run": "2026-09-05_10-15-35",
               "seed": 1,
               "status": "active",
-              "step": 23,
-              "env_steps": 920000,
+              "step": 30,
+              "env_steps": 1200000,
               "max_env_steps": 4000000,
-              "progress": 0.23,
-              "last_update": 1788572959
+              "progress": 0.3,
+              "last_update": 1788573585
             }
           ]
         }
@@ -699,11 +699,11 @@
               "run": "2026-09-05_10-10-11",
               "seed": 1,
               "status": "active",
-              "step": 28,
-              "env_steps": 1120000,
+              "step": 35,
+              "env_steps": 1400000,
               "max_env_steps": 4000000,
-              "progress": 0.28,
-              "last_update": 1788573024
+              "progress": 0.35,
+              "last_update": 1788573636
             }
           ]
         }
