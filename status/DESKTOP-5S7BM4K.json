@@ -1,6 +1,6 @@
 {
   "machine": "DESKTOP-5S7BM4K",
-  "generated_at": 1788601481,
+  "generated_at": 1788602088,
   "repo_root": "D:\\ProgramData\\docker\\embodied_perceptron\\embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -1125,19 +1125,19 @@
             {
               "run": "2026-09-05_01-54-11",
               "seed": 7,
-              "status": "active",
-              "step": 2360000,
-              "env_steps": 2952500,
+              "status": "done",
+              "step": 2390000,
+              "env_steps": 2990000,
               "max_env_steps": 3000000,
-              "progress": 0.9842,
-              "last_update": 1788601395
+              "progress": 0.9967,
+              "last_update": 1788601747
             }
           ]
         },
         {
           "stem": "td3_hindbipedrobot2dunfixed-bound_32_bi_p12_pretrained",
           "max_env_steps": 3000000,
-          "run_count": 7,
+          "run_count": 9,
           "runs": [
             {
               "run": "2026-09-02_05-33-24",
@@ -1208,6 +1208,26 @@
               "max_env_steps": 3000000,
               "progress": 0.9967,
               "last_update": 1788572582
+            },
+            {
+              "run": "2026-09-05_09-45-43",
+              "seed": 9,
+              "status": "active",
+              "step": 40000,
+              "env_steps": 52500,
+              "max_env_steps": 3000000,
+              "progress": 0.0175,
+              "last_update": 1788602050
+            },
+            {
+              "run": "2026-09-05_09-51-08",
+              "seed": 7,
+              "status": "active",
+              "step": 10000,
+              "env_steps": 15000,
+              "max_env_steps": 3000000,
+              "progress": 0.005,
+              "last_update": 1788602008
             }
           ]
         }
