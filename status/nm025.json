@@ -1,6 +1,6 @@
 {
   "machine": "nm025",
-  "generated_at": 1788605117,
+  "generated_at": 1788605193,
   "repo_root": "/Users/tsy/Documents/osaka_univ/project/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -690,41 +690,41 @@
               "run": "2026-09-05_18-50-03",
               "seed": 7,
               "status": "active",
-              "step": 32,
-              "env_steps": 1280000,
+              "step": 33,
+              "env_steps": 1320000,
               "max_env_steps": 4000000,
-              "progress": 0.32,
-              "last_update": 1788605042
+              "progress": 0.33,
+              "last_update": 1788605145
             },
             {
               "run": "2026-09-05_18-51-51",
               "seed": 9,
               "status": "active",
-              "step": 31,
-              "env_steps": 1240000,
+              "step": 32,
+              "env_steps": 1280000,
               "max_env_steps": 4000000,
-              "progress": 0.31,
-              "last_update": 1788605048
+              "progress": 0.32,
+              "last_update": 1788605151
             },
             {
               "run": "2026-09-05_18-53-42",
               "seed": 1,
               "status": "active",
-              "step": 30,
-              "env_steps": 1200000,
+              "step": 31,
+              "env_steps": 1240000,
               "max_env_steps": 4000000,
-              "progress": 0.3,
-              "last_update": 1788605080
+              "progress": 0.31,
+              "last_update": 1788605184
             },
             {
               "run": "2026-09-05_18-53-59",
               "seed": 5,
               "status": "active",
-              "step": 30,
-              "env_steps": 1200000,
+              "step": 31,
+              "env_steps": 1240000,
               "max_env_steps": 4000000,
-              "progress": 0.3,
-              "last_update": 1788605082
+              "progress": 0.31,
+              "last_update": 1788605186
             }
           ]
         },
