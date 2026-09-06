@@ -1,6 +1,6 @@
 {
   "machine": "nm025",
-  "generated_at": 1788707792,
+  "generated_at": 1788730218,
   "repo_root": "/Users/tsy/Documents/osaka_univ/project/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -1239,66 +1239,168 @@
             {
               "run": "2026-09-06_22-54-42",
               "seed": 9,
-              "status": "active",
-              "step": 48,
-              "env_steps": 1920000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.48,
-              "last_update": 1788707731
+              "progress": 1.0,
+              "last_update": 1788713002
             },
             {
               "run": "2026-09-06_22-55-41",
               "seed": 3,
-              "status": "active",
-              "step": 48,
-              "env_steps": 1920000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.48,
-              "last_update": 1788707745
+              "progress": 1.0,
+              "last_update": 1788712951
             },
             {
               "run": "2026-09-06_22-56-26",
               "seed": 1,
-              "status": "active",
-              "step": 47,
-              "env_steps": 1880000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.47,
-              "last_update": 1788707756
+              "progress": 1.0,
+              "last_update": 1788713088
             },
             {
               "run": "2026-09-06_22-57-44",
               "seed": 7,
-              "status": "active",
-              "step": 47,
-              "env_steps": 1880000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.47,
-              "last_update": 1788707792
+              "progress": 1.0,
+              "last_update": 1788713071
             },
             {
               "run": "2026-09-06_22-57-58",
               "seed": 5,
-              "status": "active",
-              "step": 47,
-              "env_steps": 1880000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.47,
-              "last_update": 1788707780
+              "progress": 1.0,
+              "last_update": 1788713065
             }
           ]
         },
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mamba_tau-off_refresh-2",
           "max_env_steps": 4000000,
-          "run_count": 0,
-          "runs": []
+          "run_count": 5,
+          "runs": [
+            {
+              "run": "2026-09-07_01-42-33",
+              "seed": 3,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788723944
+            },
+            {
+              "run": "2026-09-07_01-43-24",
+              "seed": 9,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788723906
+            },
+            {
+              "run": "2026-09-07_01-44-26",
+              "seed": 5,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788724177
+            },
+            {
+              "run": "2026-09-07_01-44-33",
+              "seed": 7,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788724150
+            },
+            {
+              "run": "2026-09-07_01-44-50",
+              "seed": 1,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788724032
+            }
+          ]
         },
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mamba_tau-off_refresh-4",
           "max_env_steps": 4000000,
-          "run_count": 0,
-          "runs": []
+          "run_count": 5,
+          "runs": [
+            {
+              "run": "2026-09-07_04-45-07",
+              "seed": 9,
+              "status": "active",
+              "step": 56,
+              "env_steps": 2240000,
+              "max_env_steps": 4000000,
+              "progress": 0.56,
+              "last_update": 1788730107
+            },
+            {
+              "run": "2026-09-07_04-45-45",
+              "seed": 3,
+              "status": "active",
+              "step": 57,
+              "env_steps": 2280000,
+              "max_env_steps": 4000000,
+              "progress": 0.57,
+              "last_update": 1788730196
+            },
+            {
+              "run": "2026-09-07_04-47-13",
+              "seed": 1,
+              "status": "active",
+              "step": 56,
+              "env_steps": 2240000,
+              "max_env_steps": 4000000,
+              "progress": 0.56,
+              "last_update": 1788730158
+            },
+            {
+              "run": "2026-09-07_04-49-12",
+              "seed": 7,
+              "status": "active",
+              "step": 55,
+              "env_steps": 2200000,
+              "max_env_steps": 4000000,
+              "progress": 0.55,
+              "last_update": 1788730165
+            },
+            {
+              "run": "2026-09-07_04-49-39",
+              "seed": 5,
+              "status": "active",
+              "step": 54,
+              "env_steps": 2160000,
+              "max_env_steps": 4000000,
+              "progress": 0.54,
+              "last_update": 1788730132
+            }
+          ]
         },
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-mamba_tau-off_refresh-8",
