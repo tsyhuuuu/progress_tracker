@@ -1,6 +1,6 @@
 {
   "machine": "DESKTOP-5S7BM4K",
-  "generated_at": 1788690139,
+  "generated_at": 1788690746,
   "repo_root": "D:\\ProgramData\\docker\\embodied_perceptron\\embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -1300,8 +1300,29 @@
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-off",
           "max_env_steps": 4000000,
-          "run_count": 0,
-          "runs": []
+          "run_count": 2,
+          "runs": [
+            {
+              "run": "2026-09-06_10-28-54",
+              "seed": 7,
+              "status": "active",
+              "step": 1,
+              "env_steps": 40000,
+              "max_env_steps": 4000000,
+              "progress": 0.01,
+              "last_update": 1788690682
+            },
+            {
+              "run": "2026-09-06_10-29-07",
+              "seed": 9,
+              "status": "active",
+              "step": 1,
+              "env_steps": 40000,
+              "max_env_steps": 4000000,
+              "progress": 0.01,
+              "last_update": 1788690686
+            }
+          ]
         },
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-on",
@@ -1425,8 +1446,29 @@
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-off",
           "max_env_steps": 4000000,
-          "run_count": 0,
-          "runs": []
+          "run_count": 2,
+          "runs": [
+            {
+              "run": "2026-09-06_10-31-13",
+              "seed": 7,
+              "status": "no_eval_yet",
+              "step": null,
+              "env_steps": null,
+              "max_env_steps": 4000000,
+              "progress": null,
+              "last_update": 1788690695
+            },
+            {
+              "run": "2026-09-06_10-31-25",
+              "seed": 9,
+              "status": "no_eval_yet",
+              "step": null,
+              "env_steps": null,
+              "max_env_steps": 4000000,
+              "progress": null,
+              "last_update": 1788690706
+            }
+          ]
         },
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-on",
