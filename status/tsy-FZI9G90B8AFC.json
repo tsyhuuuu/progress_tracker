@@ -1,6 +1,6 @@
 {
   "machine": "tsy-FZI9G90B8AFC",
-  "generated_at": 1788689877,
+  "generated_at": 1788690386,
   "repo_root": "/home/tsy/Documents/TeamL_EP/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -25,7 +25,7 @@
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-off",
           "max_env_steps": 4000000,
-          "run_count": 2,
+          "run_count": 3,
           "runs": [
             {
               "run": "2026-09-03_13-56-56",
@@ -46,6 +46,16 @@
               "max_env_steps": 4000000,
               "progress": 1.0,
               "last_update": 1788587960
+            },
+            {
+              "run": "2026-09-06_19-23-36",
+              "seed": 4,
+              "status": "active",
+              "step": 2,
+              "env_steps": 80000,
+              "max_env_steps": 4000000,
+              "progress": 0.02,
+              "last_update": 1788690364
             }
           ]
         },
@@ -527,11 +537,11 @@
               "run": "2026-09-06_18-33-31",
               "seed": 2,
               "status": "active",
-              "step": 37,
-              "env_steps": 1480000,
+              "step": 41,
+              "env_steps": 1640000,
               "max_env_steps": 4000000,
-              "progress": 0.37,
-              "last_update": 1788689809
+              "progress": 0.41,
+              "last_update": 1788690097
             }
           ]
         },
@@ -560,7 +570,7 @@
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-off",
           "max_env_steps": 4000000,
-          "run_count": 2,
+          "run_count": 3,
           "runs": [
             {
               "run": "2026-09-03_13-58-29",
@@ -581,6 +591,16 @@
               "max_env_steps": 4000000,
               "progress": 1.0,
               "last_update": 1788587487
+            },
+            {
+              "run": "2026-09-06_19-23-57",
+              "seed": 4,
+              "status": "active",
+              "step": 2,
+              "env_steps": 80000,
+              "max_env_steps": 4000000,
+              "progress": 0.02,
+              "last_update": 1788690382
             }
           ]
         },
@@ -1008,11 +1028,11 @@
               "run": "2026-09-06_18-25-51",
               "seed": 2,
               "status": "active",
-              "step": 40,
-              "env_steps": 1600000,
+              "step": 44,
+              "env_steps": 1760000,
               "max_env_steps": 4000000,
-              "progress": 0.4,
-              "last_update": 1788689804
+              "progress": 0.44,
+              "last_update": 1788690110
             }
           ]
         },
