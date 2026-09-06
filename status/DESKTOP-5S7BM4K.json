@@ -1,6 +1,6 @@
 {
   "machine": "DESKTOP-5S7BM4K",
-  "generated_at": 1788720516,
+  "generated_at": 1788721124,
   "repo_root": "D:\\ProgramData\\docker\\embodied_perceptron\\embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -1360,21 +1360,21 @@
               "run": "2026-09-06_18-44-10",
               "seed": 9,
               "status": "active",
-              "step": 1,
-              "env_steps": 40000,
+              "step": 4,
+              "env_steps": 160000,
               "max_env_steps": 4000000,
-              "progress": 0.01,
-              "last_update": 1788720449
+              "progress": 0.04,
+              "last_update": 1788720971
             },
             {
               "run": "2026-09-06_18-46-06",
               "seed": 7,
-              "status": "no_eval_yet",
-              "step": null,
-              "env_steps": null,
+              "status": "active",
+              "step": 4,
+              "env_steps": 160000,
               "max_env_steps": 4000000,
-              "progress": null,
-              "last_update": 1788720386
+              "progress": 0.04,
+              "last_update": 1788721075
             }
           ]
         },
@@ -1520,30 +1520,51 @@
             {
               "run": "2026-09-06_14-34-19",
               "seed": 9,
-              "status": "active",
-              "step": 97,
-              "env_steps": 3880000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.97,
-              "last_update": 1788720420
+              "progress": 1.0,
+              "last_update": 1788720869
             },
             {
               "run": "2026-09-06_14-36-15",
               "seed": 7,
-              "status": "active",
-              "step": 96,
-              "env_steps": 3840000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.96,
-              "last_update": 1788720381
+              "progress": 1.0,
+              "last_update": 1788720981
             }
           ]
         },
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-off",
           "max_env_steps": 4000000,
-          "run_count": 0,
-          "runs": []
+          "run_count": 2,
+          "runs": [
+            {
+              "run": "2026-09-06_18-54-40",
+              "seed": 9,
+              "status": "active",
+              "step": 1,
+              "env_steps": 40000,
+              "max_env_steps": 4000000,
+              "progress": 0.01,
+              "last_update": 1788721066
+            },
+            {
+              "run": "2026-09-06_18-56-32",
+              "seed": 7,
+              "status": "no_eval_yet",
+              "step": null,
+              "env_steps": null,
+              "max_env_steps": 4000000,
+              "progress": null,
+              "last_update": 1788721011
+            }
+          ]
         },
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-on",
