@@ -1,6 +1,6 @@
 {
   "machine": "DESKTOP-5S7BM4K",
-  "generated_at": 1788824428,
+  "generated_at": 1788825036,
   "repo_root": "D:\\ProgramData\\docker\\embodied_perceptron\\embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -1522,21 +1522,21 @@
               "run": "2026-09-07_22-29-55",
               "seed": 9,
               "status": "active",
-              "step": 25,
-              "env_steps": 1000000,
+              "step": 29,
+              "env_steps": 1160000,
               "max_env_steps": 4000000,
-              "progress": 0.25,
-              "last_update": 1788824299
+              "progress": 0.29,
+              "last_update": 1788824981
             },
             {
               "run": "2026-09-07_22-31-43",
               "seed": 7,
               "status": "active",
-              "step": 27,
-              "env_steps": 1080000,
+              "step": 31,
+              "env_steps": 1240000,
               "max_env_steps": 4000000,
-              "progress": 0.27,
-              "last_update": 1788824318
+              "progress": 0.31,
+              "last_update": 1788824897
             }
           ]
         },
@@ -1836,21 +1836,21 @@
               "run": "2026-09-07_22-49-51",
               "seed": 9,
               "status": "active",
-              "step": 21,
-              "env_steps": 840000,
+              "step": 26,
+              "env_steps": 1040000,
               "max_env_steps": 4000000,
-              "progress": 0.21,
-              "last_update": 1788824317
+              "progress": 0.26,
+              "last_update": 1788824989
             },
             {
               "run": "2026-09-07_22-57-31",
               "seed": 7,
               "status": "active",
-              "step": 18,
-              "env_steps": 720000,
+              "step": 23,
+              "env_steps": 920000,
               "max_env_steps": 4000000,
-              "progress": 0.18,
-              "last_update": 1788824350
+              "progress": 0.23,
+              "last_update": 1788825023
             }
           ]
         },
