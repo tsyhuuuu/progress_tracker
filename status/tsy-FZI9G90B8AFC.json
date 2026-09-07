@@ -1,6 +1,6 @@
 {
   "machine": "tsy-FZI9G90B8AFC",
-  "generated_at": 1788763047,
+  "generated_at": 1788763653,
   "repo_root": "/home/tsy/Documents/TeamL_EP/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -295,12 +295,12 @@
             {
               "run": "2026-09-07_15-36-36",
               "seed": 3,
-              "status": "no_eval_yet",
-              "step": null,
-              "env_steps": null,
+              "status": "active",
+              "step": 8,
+              "env_steps": 320000,
               "max_env_steps": 4000000,
-              "progress": null,
-              "last_update": 1788762997
+              "progress": 0.08,
+              "last_update": 1788763592
             }
           ]
         },
@@ -444,11 +444,11 @@
               "run": "2026-09-07_13-59-59",
               "seed": 4,
               "status": "active",
-              "step": 80,
-              "env_steps": 3200000,
+              "step": 89,
+              "env_steps": 3560000,
               "max_env_steps": 4000000,
-              "progress": 0.8,
-              "last_update": 1788762993
+              "progress": 0.89,
+              "last_update": 1788763650
             }
           ]
         },
@@ -1001,11 +1001,11 @@
               "run": "2026-09-07_15-17-00",
               "seed": 3,
               "status": "active",
-              "step": 16,
-              "env_steps": 640000,
+              "step": 24,
+              "env_steps": 960000,
               "max_env_steps": 4000000,
-              "progress": 0.16,
-              "last_update": 1788763017
+              "progress": 0.24,
+              "last_update": 1788763606
             }
           ]
         },
@@ -1149,11 +1149,11 @@
               "run": "2026-09-07_14-18-23",
               "seed": 4,
               "status": "active",
-              "step": 64,
-              "env_steps": 2560000,
+              "step": 73,
+              "env_steps": 2920000,
               "max_env_steps": 4000000,
-              "progress": 0.64,
-              "last_update": 1788762984
+              "progress": 0.73,
+              "last_update": 1788763639
             }
           ]
         },
