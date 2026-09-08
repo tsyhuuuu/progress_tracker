@@ -1,6 +1,6 @@
 {
   "machine": "DESKTOP-5S7BM4K",
-  "generated_at": 1788861507,
+  "generated_at": 1788862115,
   "repo_root": "D:\\ProgramData\\docker\\embodied_perceptron\\embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -1040,47 +1040,57 @@
         {
           "stem": "td3_hindbipedrobot2dunfixed-bound_32_bi_p12_pretrained1",
           "max_env_steps": 3000000,
-          "run_count": 4,
+          "run_count": 5,
           "runs": [
             {
               "run": "2026-09-08_08-44-56",
               "seed": 1,
               "status": "active",
-              "step": 260000,
-              "env_steps": 327500,
+              "step": 270000,
+              "env_steps": 340000,
               "max_env_steps": 3000000,
-              "progress": 0.1092,
-              "last_update": 1788861500
+              "progress": 0.1133,
+              "last_update": 1788861668
             },
             {
               "run": "2026-09-08_08-45-05",
               "seed": 3,
               "status": "active",
-              "step": 260000,
-              "env_steps": 327500,
+              "step": 270000,
+              "env_steps": 340000,
               "max_env_steps": 3000000,
-              "progress": 0.1092,
-              "last_update": 1788861493
+              "progress": 0.1133,
+              "last_update": 1788861664
             },
             {
               "run": "2026-09-08_08-45-16",
               "seed": 5,
               "status": "active",
-              "step": 250000,
-              "env_steps": 315000,
+              "step": 270000,
+              "env_steps": 340000,
               "max_env_steps": 3000000,
-              "progress": 0.105,
-              "last_update": 1788861347
+              "progress": 0.1133,
+              "last_update": 1788861683
             },
             {
               "run": "2026-09-08_08-46-10",
               "seed": 8,
               "status": "active",
-              "step": 250000,
-              "env_steps": 315000,
+              "step": 270000,
+              "env_steps": 340000,
               "max_env_steps": 3000000,
-              "progress": 0.105,
-              "last_update": 1788861446
+              "progress": 0.1133,
+              "last_update": 1788861911
+            },
+            {
+              "run": "2026-09-08_10-07-01",
+              "seed": 6,
+              "status": "active",
+              "step": 0,
+              "env_steps": 2500,
+              "max_env_steps": 3000000,
+              "progress": 0.0008,
+              "last_update": 1788862055
             }
           ]
         }
