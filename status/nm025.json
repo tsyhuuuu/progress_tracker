@@ -1,6 +1,6 @@
 {
   "machine": "nm025",
-  "generated_at": 1788844176,
+  "generated_at": 1788844231,
   "repo_root": "/Users/tsy/Documents/osaka_univ/project/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -1981,31 +1981,31 @@
               "run": "2026-09-08_14-00-53",
               "seed": 7,
               "status": "active",
-              "step": 4,
-              "env_steps": 160000,
+              "step": 5,
+              "env_steps": 200000,
               "max_env_steps": 4000000,
-              "progress": 0.04,
-              "last_update": 1788844077
+              "progress": 0.05,
+              "last_update": 1788844186
             },
             {
               "run": "2026-09-08_14-05-55",
               "seed": 3,
               "status": "active",
-              "step": 1,
-              "env_steps": 40000,
+              "step": 2,
+              "env_steps": 80000,
               "max_env_steps": 4000000,
-              "progress": 0.01,
-              "last_update": 1788844067
+              "progress": 0.02,
+              "last_update": 1788844177
             },
             {
               "run": "2026-09-08_14-08-35",
               "seed": 9,
-              "status": "no_eval_yet",
-              "step": null,
-              "env_steps": null,
+              "status": "active",
+              "step": 1,
+              "env_steps": 40000,
               "max_env_steps": 4000000,
-              "progress": null,
-              "last_update": 1788844117
+              "progress": 0.01,
+              "last_update": 1788844224
             }
           ]
         },
