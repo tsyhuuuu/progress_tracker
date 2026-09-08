@@ -1,6 +1,6 @@
 {
   "machine": "tsy-FZI9G90B8AFC",
-  "generated_at": 1788858142,
+  "generated_at": 1788858748,
   "repo_root": "/home/tsy/Documents/TeamL_EP/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -127,19 +127,19 @@
             {
               "run": "2026-09-08_16-03-19",
               "seed": 5,
-              "status": "active",
-              "step": 96,
-              "env_steps": 3840000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.96,
-              "last_update": 1788858091
+              "progress": 1.0,
+              "last_update": 1788858388
             }
           ]
         },
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-off",
           "max_env_steps": 4000000,
-          "run_count": 4,
+          "run_count": 5,
           "runs": [
             {
               "run": "2026-09-03_18-14-50",
@@ -180,6 +180,16 @@
               "max_env_steps": 4000000,
               "progress": 1.0,
               "last_update": 1788748125
+            },
+            {
+              "run": "2026-09-08_18-06-29",
+              "seed": 5,
+              "status": "active",
+              "step": 4,
+              "env_steps": 160000,
+              "max_env_steps": 4000000,
+              "progress": 0.04,
+              "last_update": 1788858734
             }
           ]
         },
@@ -880,11 +890,11 @@
               "run": "2026-09-08_17-47-02",
               "seed": 3,
               "status": "active",
-              "step": 10,
-              "env_steps": 400000,
+              "step": 17,
+              "env_steps": 680000,
               "max_env_steps": 4000000,
-              "progress": 0.1,
-              "last_update": 1788858070
+              "progress": 0.17,
+              "last_update": 1788858671
             }
           ]
         },
@@ -1073,11 +1083,11 @@
               "run": "2026-09-08_16-25-58",
               "seed": 5,
               "status": "active",
-              "step": 77,
-              "env_steps": 3080000,
+              "step": 85,
+              "env_steps": 3400000,
               "max_env_steps": 4000000,
-              "progress": 0.77,
-              "last_update": 1788858135
+              "progress": 0.85,
+              "last_update": 1788858736
             }
           ]
         },
@@ -1825,11 +1835,11 @@
               "run": "2026-09-08_17-14-49",
               "seed": 3,
               "status": "active",
-              "step": 32,
-              "env_steps": 1280000,
+              "step": 40,
+              "env_steps": 1600000,
               "max_env_steps": 4000000,
-              "progress": 0.32,
-              "last_update": 1788858059
+              "progress": 0.4,
+              "last_update": 1788858742
             }
           ]
         },
