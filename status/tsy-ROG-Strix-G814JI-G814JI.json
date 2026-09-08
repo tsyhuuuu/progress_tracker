@@ -1,6 +1,6 @@
 {
   "machine": "tsy-ROG-Strix-G814JI-G814JI",
-  "generated_at": 1788851643,
+  "generated_at": 1788861510,
   "repo_root": "/home/tsy/Documents/team_l/embodied_perceptron",
   "experiments": {
     "./automation/multi_gate_training/td3": {
@@ -51,40 +51,71 @@
             {
               "run": "2026-09-08_15-31-29",
               "seed": 2,
-              "status": "active",
-              "step": 280000,
-              "env_steps": 352500,
+              "status": "done",
+              "step": 790000,
+              "env_steps": 990000,
               "max_env_steps": 1000000,
-              "progress": 0.3525,
-              "last_update": 1788851609
+              "progress": 0.99,
+              "last_update": 1788856176
             },
             {
               "run": "2026-09-08_15-31-52",
               "seed": 1,
-              "status": "active",
-              "step": 280000,
-              "env_steps": 352500,
+              "status": "done",
+              "step": 790000,
+              "env_steps": 990000,
               "max_env_steps": 1000000,
-              "progress": 0.3525,
-              "last_update": 1788851619
+              "progress": 0.99,
+              "last_update": 1788856172
             },
             {
               "run": "2026-09-08_15-32-26",
               "seed": 3,
-              "status": "active",
-              "step": 270000,
-              "env_steps": 340000,
+              "status": "done",
+              "step": 790000,
+              "env_steps": 990000,
               "max_env_steps": 1000000,
-              "progress": 0.34,
-              "last_update": 1788851598
+              "progress": 0.99,
+              "last_update": 1788856245
             }
           ]
         },
         {
           "stem": "td3_hindbipedrobot2dunfixed-trot_32_bi_p12",
           "max_env_steps": 1000000,
-          "run_count": 0,
-          "runs": []
+          "run_count": 3,
+          "runs": [
+            {
+              "run": "2026-09-08_17-30-57",
+              "seed": 1,
+              "status": "active",
+              "step": 590000,
+              "env_steps": 740000,
+              "max_env_steps": 1000000,
+              "progress": 0.74,
+              "last_update": 1788861495
+            },
+            {
+              "run": "2026-09-08_17-31-01",
+              "seed": 2,
+              "status": "active",
+              "step": 570000,
+              "env_steps": 715000,
+              "max_env_steps": 1000000,
+              "progress": 0.715,
+              "last_update": 1788861425
+            },
+            {
+              "run": "2026-09-08_17-32-06",
+              "seed": 3,
+              "status": "active",
+              "step": 580000,
+              "env_steps": 727500,
+              "max_env_steps": 1000000,
+              "progress": 0.7275,
+              "last_update": 1788861470
+            }
+          ]
         },
         {
           "stem": "td3_hindbipedrobot2dunfixed-walk_32_bi_p12",
