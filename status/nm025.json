@@ -1,6 +1,6 @@
 {
   "machine": "nm025",
-  "generated_at": 1788822698,
+  "generated_at": 1788828088,
   "repo_root": "/Users/tsy/Documents/osaka_univ/project/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -1867,51 +1867,51 @@
               "run": "2026-09-08_07-52-06",
               "seed": 7,
               "status": "active",
-              "step": 11,
-              "env_steps": 440000,
+              "step": 68,
+              "env_steps": 2720000,
               "max_env_steps": 4000000,
-              "progress": 0.11,
-              "last_update": 1788822614
+              "progress": 0.68,
+              "last_update": 1788828064
             },
             {
               "run": "2026-09-08_07-55-17",
               "seed": 9,
               "status": "active",
-              "step": 9,
-              "env_steps": 360000,
+              "step": 65,
+              "env_steps": 2600000,
               "max_env_steps": 4000000,
-              "progress": 0.09,
-              "last_update": 1788822634
+              "progress": 0.65,
+              "last_update": 1788828070
             },
             {
               "run": "2026-09-08_07-55-45",
               "seed": 3,
               "status": "active",
-              "step": 9,
-              "env_steps": 360000,
+              "step": 66,
+              "env_steps": 2640000,
               "max_env_steps": 4000000,
-              "progress": 0.09,
-              "last_update": 1788822639
+              "progress": 0.66,
+              "last_update": 1788828087
             },
             {
               "run": "2026-09-08_08-01-28",
               "seed": 5,
               "status": "active",
-              "step": 5,
-              "env_steps": 200000,
+              "step": 62,
+              "env_steps": 2480000,
               "max_env_steps": 4000000,
-              "progress": 0.05,
-              "last_update": 1788822596
+              "progress": 0.62,
+              "last_update": 1788828058
             },
             {
               "run": "2026-09-08_08-08-14",
               "seed": 1,
               "status": "active",
-              "step": 2,
-              "env_steps": 80000,
+              "step": 58,
+              "env_steps": 2320000,
               "max_env_steps": 4000000,
-              "progress": 0.02,
-              "last_update": 1788822698
+              "progress": 0.58,
+              "last_update": 1788828028
             }
           ]
         },
