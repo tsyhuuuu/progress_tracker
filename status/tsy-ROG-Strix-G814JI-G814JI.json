@@ -1,6 +1,6 @@
 {
   "machine": "tsy-ROG-Strix-G814JI-G814JI",
-  "generated_at": 1788914633,
+  "generated_at": 1788915239,
   "repo_root": "/home/tsy/Documents/team_l/embodied_perceptron",
   "experiments": {
     "./automation/multi_gate_training/td3": {
@@ -178,7 +178,7 @@
         {
           "stem": "td3_forebipedrobot2dunfixed-bound_32_bi_p12",
           "max_env_steps": 1000000,
-          "run_count": 9,
+          "run_count": 10,
           "runs": [
             {
               "run": "2026-09-08_21-41-42",
@@ -269,6 +269,16 @@
               "max_env_steps": 1000000,
               "progress": 0.99,
               "last_update": 1788908350
+            },
+            {
+              "run": "2026-09-09_09-49-31",
+              "seed": 10,
+              "status": "active",
+              "step": 30000,
+              "env_steps": 40000,
+              "max_env_steps": 1000000,
+              "progress": 0.04,
+              "last_update": 1788915234
             }
           ]
         },
@@ -340,7 +350,7 @@
             {
               "run": "2026-09-09_07-45-13",
               "seed": 9,
-              "status": "active",
+              "status": "done",
               "step": 790000,
               "env_steps": 990000,
               "max_env_steps": 1000000,
@@ -351,21 +361,21 @@
               "run": "2026-09-09_07-51-29",
               "seed": 3,
               "status": "active",
-              "step": 700000,
-              "env_steps": 877500,
+              "step": 770000,
+              "env_steps": 965000,
               "max_env_steps": 1000000,
-              "progress": 0.8775,
-              "last_update": 1788914540
+              "progress": 0.965,
+              "last_update": 1788915168
             },
             {
               "run": "2026-09-09_08-00-36",
               "seed": 6,
               "status": "active",
-              "step": 680000,
-              "env_steps": 852500,
+              "step": 750000,
+              "env_steps": 940000,
               "max_env_steps": 1000000,
-              "progress": 0.8525,
-              "last_update": 1788914565
+              "progress": 0.94,
+              "last_update": 1788915155
             }
           ]
         }
