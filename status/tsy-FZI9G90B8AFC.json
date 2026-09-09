@@ -1,6 +1,6 @@
 {
   "machine": "tsy-FZI9G90B8AFC",
-  "generated_at": 1788956894,
+  "generated_at": 1788957501,
   "repo_root": "/home/tsy/Documents/TeamL_EP/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -983,11 +983,11 @@
               "run": "2026-09-09_20-55-49",
               "seed": 5,
               "status": "active",
-              "step": 25,
-              "env_steps": 1000000,
+              "step": 34,
+              "env_steps": 1360000,
               "max_env_steps": 4000000,
-              "progress": 0.25,
-              "last_update": 1788956833
+              "progress": 0.34,
+              "last_update": 1788957492
             }
           ]
         },
@@ -1140,7 +1140,7 @@
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-ctrnn_tau-off",
           "max_env_steps": 4000000,
-          "run_count": 5,
+          "run_count": 6,
           "runs": [
             {
               "run": "2026-09-03_13-58-29",
@@ -1191,6 +1191,16 @@
               "max_env_steps": 4000000,
               "progress": 1.0,
               "last_update": 1788852357
+            },
+            {
+              "run": "2026-09-09_21-36-21",
+              "seed": 6,
+              "status": "active",
+              "step": 1,
+              "env_steps": 40000,
+              "max_env_steps": 4000000,
+              "progress": 0.01,
+              "last_update": 1788957449
             }
           ]
         },
@@ -2268,12 +2278,12 @@
             {
               "run": "2026-09-09_19-39-08",
               "seed": 5,
-              "status": "active",
-              "step": 95,
-              "env_steps": 3800000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.95,
-              "last_update": 1788956872
+              "progress": 1.0,
+              "last_update": 1788957212
             }
           ]
         }
