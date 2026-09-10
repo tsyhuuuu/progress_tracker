@@ -1,6 +1,6 @@
 {
   "machine": "tsy-ROG-Strix-G814JI-G814JI",
-  "generated_at": 1789011050,
+  "generated_at": 1789011656,
   "repo_root": "/home/tsy/Documents/team_l/embodied_perceptron",
   "experiments": {
     "./automation/multi_gate_training/td3": {
@@ -55,11 +55,11 @@
               "run": "2026-09-10_09-40-54",
               "seed": 3,
               "status": "active",
-              "step": 1400000,
-              "env_steps": 1752500,
+              "step": 1490000,
+              "env_steps": 1865000,
               "max_env_steps": 2000000,
-              "progress": 0.8762,
-              "last_update": 1789010985
+              "progress": 0.9325,
+              "last_update": 1789011634
             }
           ]
         },
@@ -112,11 +112,11 @@
               "run": "2026-09-10_12-26-07",
               "seed": 5,
               "status": "active",
-              "step": 40000,
-              "env_steps": 52500,
+              "step": 130000,
+              "env_steps": 165000,
               "max_env_steps": 1000000,
-              "progress": 0.0525,
-              "last_update": 1789011035
+              "progress": 0.165,
+              "last_update": 1789011646
             }
           ]
         },
