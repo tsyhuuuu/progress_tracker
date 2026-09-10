@@ -1,6 +1,6 @@
 {
   "machine": "nm025",
-  "generated_at": 1788952444,
+  "generated_at": 1788999372,
   "repo_root": "/Users/tsy/Documents/osaka_univ/project/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -2493,78 +2493,282 @@
             {
               "run": "2026-09-09_19-13-38",
               "seed": 7,
-              "status": "active",
-              "step": 33,
-              "env_steps": 1320000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.33,
-              "last_update": 1788952405
+              "progress": 1.0,
+              "last_update": 1788960805
             },
             {
               "run": "2026-09-09_19-22-57",
               "seed": 9,
-              "status": "active",
-              "step": 28,
-              "env_steps": 1120000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.28,
-              "last_update": 1788952409
+              "progress": 1.0,
+              "last_update": 1788961390
             },
             {
               "run": "2026-09-09_19-24-14",
               "seed": 3,
-              "status": "active",
-              "step": 27,
-              "env_steps": 1080000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.27,
-              "last_update": 1788952348
+              "progress": 1.0,
+              "last_update": 1788961300
             },
             {
               "run": "2026-09-09_19-25-01",
               "seed": 5,
-              "status": "active",
-              "step": 27,
-              "env_steps": 1080000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.27,
-              "last_update": 1788952398
+              "progress": 1.0,
+              "last_update": 1788961461
             },
             {
               "run": "2026-09-09_19-43-01",
               "seed": 1,
-              "status": "active",
-              "step": 17,
-              "env_steps": 680000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.17,
-              "last_update": 1788952401
+              "progress": 1.0,
+              "last_update": 1788962559
             }
           ]
         },
         {
           "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-gru_tau-on_refresh-4",
           "max_env_steps": 4000000,
-          "run_count": 0,
-          "runs": []
+          "run_count": 5,
+          "runs": [
+            {
+              "run": "2026-09-09_22-33-27",
+              "seed": 7,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788971738
+            },
+            {
+              "run": "2026-09-09_22-41-42",
+              "seed": 3,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788972187
+            },
+            {
+              "run": "2026-09-09_22-43-11",
+              "seed": 9,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788972446
+            },
+            {
+              "run": "2026-09-09_22-44-22",
+              "seed": 5,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788972429
+            },
+            {
+              "run": "2026-09-09_23-02-41",
+              "seed": 1,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788973376
+            }
+          ]
         },
         {
           "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-gru_tau-on_refresh-8",
           "max_env_steps": 4000000,
-          "run_count": 0,
-          "runs": []
+          "run_count": 5,
+          "runs": [
+            {
+              "run": "2026-09-10_01-35-40",
+              "seed": 7,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788982479
+            },
+            {
+              "run": "2026-09-10_01-43-09",
+              "seed": 3,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788982949
+            },
+            {
+              "run": "2026-09-10_01-47-11",
+              "seed": 5,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788983365
+            },
+            {
+              "run": "2026-09-10_01-47-27",
+              "seed": 9,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788983306
+            },
+            {
+              "run": "2026-09-10_02-02-58",
+              "seed": 1,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788984194
+            }
+          ]
         },
         {
           "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ltc_tau-off_refresh-2",
           "max_env_steps": 4000000,
-          "run_count": 0,
-          "runs": []
+          "run_count": 5,
+          "runs": [
+            {
+              "run": "2026-09-10_04-34-41",
+              "seed": 7,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788992822
+            },
+            {
+              "run": "2026-09-10_04-42-31",
+              "seed": 3,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788993339
+            },
+            {
+              "run": "2026-09-10_04-48-28",
+              "seed": 9,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788993669
+            },
+            {
+              "run": "2026-09-10_04-49-27",
+              "seed": 5,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788993727
+            },
+            {
+              "run": "2026-09-10_05-03-16",
+              "seed": 1,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
+              "max_env_steps": 4000000,
+              "progress": 1.0,
+              "last_update": 1788994596
+            }
+          ]
         },
         {
           "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ltc_tau-off_refresh-4",
           "max_env_steps": 4000000,
-          "run_count": 0,
-          "runs": []
+          "run_count": 5,
+          "runs": [
+            {
+              "run": "2026-09-10_07-27-03",
+              "seed": 7,
+              "status": "active",
+              "step": 62,
+              "env_steps": 2480000,
+              "max_env_steps": 4000000,
+              "progress": 0.62,
+              "last_update": 1788999270
+            },
+            {
+              "run": "2026-09-10_07-35-40",
+              "seed": 3,
+              "status": "active",
+              "step": 57,
+              "env_steps": 2280000,
+              "max_env_steps": 4000000,
+              "progress": 0.57,
+              "last_update": 1788999355
+            },
+            {
+              "run": "2026-09-10_07-41-11",
+              "seed": 9,
+              "status": "active",
+              "step": 54,
+              "env_steps": 2160000,
+              "max_env_steps": 4000000,
+              "progress": 0.54,
+              "last_update": 1788999326
+            },
+            {
+              "run": "2026-09-10_07-42-09",
+              "seed": 5,
+              "status": "active",
+              "step": 53,
+              "env_steps": 2120000,
+              "max_env_steps": 4000000,
+              "progress": 0.53,
+              "last_update": 1788999271
+            },
+            {
+              "run": "2026-09-10_07-56-38",
+              "seed": 1,
+              "status": "active",
+              "step": 44,
+              "env_steps": 1760000,
+              "max_env_steps": 4000000,
+              "progress": 0.44,
+              "last_update": 1788999278
+            }
+          ]
         },
         {
           "stem": "cmaes_hindbipedrobot2dunfixed-bound_ctrl-ltc_tau-off_refresh-8",
