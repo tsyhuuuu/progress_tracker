@@ -1,6 +1,6 @@
 {
   "machine": "tsy-FZI9G90B8AFC",
-  "generated_at": 1789130805,
+  "generated_at": 1789131412,
   "repo_root": "/home/tsy/Documents/TeamL_EP/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -1019,11 +1019,11 @@
               "run": "2026-09-11_19-55-04",
               "seed": 6,
               "status": "active",
-              "step": 86,
-              "env_steps": 3440000,
+              "step": 94,
+              "env_steps": 3760000,
               "max_env_steps": 4000000,
-              "progress": 0.86,
-              "last_update": 1789130784
+              "progress": 0.94,
+              "last_update": 1789131387
             }
           ]
         },
@@ -3105,31 +3105,31 @@
               "run": "2026-09-11_21-37-45",
               "seed": 2,
               "status": "active",
-              "step": 7,
-              "env_steps": 280000,
+              "step": 15,
+              "env_steps": 600000,
               "max_env_steps": 4000000,
-              "progress": 0.07,
-              "last_update": 1789130788
+              "progress": 0.15,
+              "last_update": 1789131367
             },
             {
               "run": "2026-09-11_21-39-11",
               "seed": 6,
               "status": "active",
-              "step": 5,
-              "env_steps": 200000,
+              "step": 13,
+              "env_steps": 520000,
               "max_env_steps": 4000000,
-              "progress": 0.05,
-              "last_update": 1789130740
+              "progress": 0.13,
+              "last_update": 1789131339
             },
             {
               "run": "2026-09-11_21-43-33",
               "seed": 4,
               "status": "active",
-              "step": 2,
-              "env_steps": 80000,
+              "step": 10,
+              "env_steps": 400000,
               "max_env_steps": 4000000,
-              "progress": 0.02,
-              "last_update": 1789130767
+              "progress": 0.1,
+              "last_update": 1789131365
             }
           ]
         },
