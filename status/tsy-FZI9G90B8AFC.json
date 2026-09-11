@@ -1,6 +1,6 @@
 {
   "machine": "tsy-FZI9G90B8AFC",
-  "generated_at": 1789106569,
+  "generated_at": 1789107175,
   "repo_root": "/home/tsy/Documents/TeamL_EP/embodied_perceptron",
   "experiments": {
     "automation/nested_learning/passive_joint_evaluation/td3": {
@@ -818,11 +818,11 @@
               "run": "2026-09-11_13-10-23",
               "seed": 6,
               "status": "active",
-              "step": 86,
-              "env_steps": 3440000,
+              "step": 94,
+              "env_steps": 3760000,
               "max_env_steps": 4000000,
-              "progress": 0.86,
-              "last_update": 1789106507
+              "progress": 0.94,
+              "last_update": 1789107127
             }
           ]
         },
@@ -2946,39 +2946,49 @@
             {
               "run": "2026-09-11_12-56-55",
               "seed": 4,
-              "status": "active",
-              "step": 97,
-              "env_steps": 3880000,
+              "status": "done",
+              "step": 100,
+              "env_steps": 4000000,
               "max_env_steps": 4000000,
-              "progress": 0.97,
-              "last_update": 1789106499
+              "progress": 1.0,
+              "last_update": 1789106728
             }
           ]
         },
         {
           "stem": "cmaes_forebipedrobot2dunfixed-bound_ctrl-gru_tau-on_refresh-2",
           "max_env_steps": 4000000,
-          "run_count": 2,
+          "run_count": 3,
           "runs": [
             {
               "run": "2026-09-11_15-00-09",
               "seed": 2,
               "status": "active",
-              "step": 1,
-              "env_steps": 40000,
+              "step": 9,
+              "env_steps": 360000,
               "max_env_steps": 4000000,
-              "progress": 0.01,
-              "last_update": 1789106495
+              "progress": 0.09,
+              "last_update": 1789107141
             },
             {
               "run": "2026-09-11_15-01-57",
               "seed": 6,
-              "status": "no_eval_yet",
-              "step": null,
-              "env_steps": null,
+              "status": "active",
+              "step": 7,
+              "env_steps": 280000,
               "max_env_steps": 4000000,
-              "progress": null,
-              "last_update": 1789106518
+              "progress": 0.07,
+              "last_update": 1789107100
+            },
+            {
+              "run": "2026-09-11_15-05-29",
+              "seed": 4,
+              "status": "active",
+              "step": 5,
+              "env_steps": 200000,
+              "max_env_steps": 4000000,
+              "progress": 0.05,
+              "last_update": 1789107148
             }
           ]
         },
